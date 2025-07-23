@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>vultourjol</title>    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="source/code-box-fill-16px.png" id="favicon-16">
+    <link rel="icon" type="image/png" sizes="32x32" href="source/code-box-fill-32px.png" id="favicon-32">
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CD3838',
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-50 backdrop-blur -translate-y-full">
+        <div class="mx-auto px-6 w-full py-4 flex justify-between items-center">
+
+            <a href="#hero" class="text-white druk-font text-2xl select-none">VULTOURJOL</a>
+
+            <div class="hamburger-menu lg:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer z-50">
+                <span class="bar w-6 h-0.5 bg-white mb-1.5 transition-all"></span>
+                <span class="bar w-6 h-0.5 bg-white mb-1.5 transition-all"></span>
+                <span class="bar w-6 h-0.5 bg-white transition-all"></span>
+            </div>  
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#portfolio" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Портфолио</a>
+                <a href="#showcase" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Новое</a>
+                <a href="#about" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Обо мне</a>
+                <a href="#contact" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Контакты</a>
+            </nav>
+            
+            <div class="mobile-menu fixed top-0 right-0 w-80 h-full transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+                <nav class="flex flex-col items-center justify-center w-full h-screen space-y-16 px-6">
+                    <a href="#portfolio" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">Портфолио</a>
+                    <a href="#showcase" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">Новое</a>
+                    <a href="#about" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">Обо мне</a>
+                    <a href="#contact" class="text-white hover:text-primary text-xl uppercase  tracking-wider py-2 px-1 select-none">Контакты</a>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        <!-- <div class="video-overlay"></div> -->
+        <div class="mx-auto px-6 w-full z-10 text-center">
+            <h1 class="text-2xl md:text-5xl lg:text-9xl mb-4 md:mb-12 typewriter inline-block druk-font tracking-widest select-none">VULTOURJOL</h1>
+            
+            <div>
+                <p class="text-sm md:text-md lg:text-xl mb-4 md:mb-12 fade-in inline-block druk-font tracking-widest select-none text-primary">Developing your ideas.</p>
+            </div>
+            
+            <div class="flex justify-center space-x-8 md:space-x-16 mb-16">
+                <div class="w-16 h-16 flex items-center justify-center floating">
+                    <i class="ri-terminal-line text-white text-3xl md:text-4xl"></i>
+                </div>
+
+                <div class="w-16 h-16 flex items-center justify-center floating-delay-1">
+                    <i class="ri-bug-2-line text-white text-3xl md:text-4xl"></i>
+                </div>
+
+                <div class="w-16 h-16 flex items-center justify-center floating-delay-2">
+                    <i class="ri-code-s-slash-line text-white text-3xl md:text-4xl"></i>
+                </div>
+            </div>
+
+            <a href="#portfolio" class="scroll-indicator inline-block">
+                <div class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-primary transition-colors">
+                    <i class="ri-arrow-down-wide-line text-white font-bold text-4xl"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="py-6 bg-black">
+        <div class="container mx-auto px-6 w-full mt-6">
+            <h2 class="heading-font text-3xl md:text-4xl text-center druk-font select-none"><a href="#portfolio">Мои <span class="text-primary">Проекты</span></a></h2>
+
+            <!-- Swiper elements navigation -->
+            <div class="flex justify-between items-center mb-4 mt-4 select-none">
+                <div class="swiper-button-prev-custom w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
+                    <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next-custom w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
+                    <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
+                </div>
+            </div>
+    
+            <!-- Swiper -->
+            <div class="swiper project-swiper pt-3 select-none">
+                <div class="swiper-wrapper">
+                    
+                    <!-- Project 1 -->
+                    <!-- <div class="swiper-slide">
+                        <div class="project-card rounded overflow-hidden relative h-80" data-project-id="1">
+                            <picture>
+                                <source srcset="source/alexstory.webp" media="(max-width: 600px)" type="image/webp">
+                                <source srcset="source/alexstory.webp" media="(max-width: 1200px)" type="image/webp">
+                                <source srcset="source/alexstory.webp" type="image/webp">
+                                <img src="source/alexstory.webp" loading="lazy" alt="Алекс" 
+                                     class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                            </picture>                     
+                            <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <h3 class="text-xl mb-2 druk-font">Shitty Story</h3>
+                                <p class="text-sm opacity-80">Художественный короткометражный фильм • 2024</p>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Soon -->
+                    <div class="swiper-slide">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-4 border-white border-opacity-10" data-project-id="1">
+                            <div class="bg-[#0a0a0a] w-full h-full flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="ri-git-repository-line text-primary text-5xl mb-4"></i>
+                                    <h3 class="text-xl mb-2 druk-font">Скоро</h3>
+                                    <p class="text-sm opacity-80">Новый проект в разработке</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="swiper-pagination mt-6 md:hidden"></div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Showcase Section -->
+    <section id="showcase" class="py-6 bg-black select-none">
+        <div class="container mx-auto px-6 w-full mt-6">
+            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none"><a href="#showcase">Последний <span class="text-primary">Проект</span></a></h2>
+
+            <!-- Showcase 1 -->
+            <div class="featured-project mb-10">
+                <div class="relative h-[70vh] rounded-lg overflow-hidden mb-6 border-2 border-opacity-10 border-primary">
+                    <!-- Navigation arrows -->
+                    <button class="showcase-prev absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors z-10">
+                        <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
+                    </button>
+                    <button class="showcase-next absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors z-10">
+                        <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
+                    </button>
+
+                    <!-- Image container -->
+                    <div class="showcase-images">
+                        <picture class="showcase-image active">
+                            <source srcset="source/project1.1.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project1.1.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project1.1.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project1.1.webp" type="image/webp">
+                            <img src="source/project1.1.webp" loading="lazy" alt="Project 1 - Image 1" 
+                                class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project1.2.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project1.2.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project1.2.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project1.2.webp" type="image/webp">
+                            <img src="source/project1.2.webp" loading="lazy" alt="Project 1 - Image 2" 
+                                class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project1.3.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project1.3.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project1.3.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project1.3.webp" type="image/webp">
+                            <img src="source/project1.3.webp" loading="lazy" alt="Project 1 - Image 3" 
+                                class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project1.4.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project1.4.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project1.4.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project1.4.webp" type="image/webp">
+                            <img src="source/project1.4.webp" loading="lazy" alt="Project 1 - Image 4" 
+                                class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project1.5.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project1.5.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project1.5.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project1.5.webp" type="image/webp">
+                            <img src="source/project1.5.webp" loading="lazy" alt="Project 1 - Image 5" 
+                                class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                    </div>
+
+                    <!-- Image indicator dots -->
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                        <button class="showcase-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity active" data-index="0"></button>
+                        <button class="showcase-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="1"></button>
+                        <button class="showcase-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="2"></button>
+                        <button class="showcase-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="3"></button>
+                        <button class="showcase-dot w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="4"></button>
+                    </div>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-12">
+                        <h3 class="text-xl md:text-4xl mb-4 druk-font">prodbylelya.ru</h3>
+                        <p class="text-sm md:text-lg max-w-2xl opacity-80">Сайт портфолио для продюсера / режиссёра монтажа.</p>
+                        <p class="text-sm md:text-lg max-w-2xl opacity-80 mb-6">Моя первая большая попытка в веб-разработку.</p>
+                        <div class="flex flex-wrap space-x-2 gap-y-2">
+                            <a href="https://github.com/vultourjol/film-producer-website" class="px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                                <span>Github <i class="ri-github-fill text-white text-xl"></i></span>
+                            </a>
+                            <a href="https://prodbylelya.ru/" class="px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                                <span>Где то я это видел... <i class="ri-movie-2-line text-white text-xl"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Языки:</h4>
+                        <p class="text-sm md:text-lg opacity-80">• HTML - 81.9 %</p>
+                        <p class="text-sm md:text-lg opacity-80">• JavaScript - 9.2 %</p>
+                        <p class="text-sm md:text-lg opacity-80">• CSS - 8.9 %</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Особенности</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-black bg-opacity-30 p-4 rounded border-2 border-primary border-opacity-10">
+                                <div class="w-10 h-10 flex items-center justify-center mb-2">
+                                    <i class="ri-image-circle-line text-primary text-3xl md:text-4xl"></i>
+                                </div>
+                                <h5 class="font-bold mb-1 text-sm md:text-lg">Дизайн</h5>
+                            </div>
+                            <div class="bg-black bg-opacity-30 p-4 rounded border-2 border-primary border-opacity-10">
+                                <div class="w-10 h-10 flex items-center justify-center mb-2">
+                                    <i class="ri-settings-6-line text-primary text-3xl md:text-4xl"></i>
+                                </div>
+                                <h5 class="font-bold mb-1 text-sm md:text-lg">Анимации</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-6 bg-black">
+        <div class="container mx-auto px-6 w-full mt-6">
+            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none"><a href="#about">Обо <span class="text-primary">Мне</span></a></h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                
+                <!-- Main picture -->
+                <div class="relative select-none order-2 lg:order-1">
+                    <div class="film-strip absolute top-0 left-0 h-full w-12"></div>
+                    <div class="pl-16">
+                        <picture>
+                            <source srcset="source/mypic.webp" media="(max-width: 600px)" type="image/webp">
+                            <source srcset="source/mypic.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/mypic.webp" type="image/webp">
+                            <img src="source/mypic.webp" loading="lazy" alt="Портрет" 
+                                class="rounded-lg w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110 max-h-[600px] md:max-h-[1000px] lg:max-h-none">
+                        </picture>                    
+                    </div>
+                    <div class="absolute -bottom-4 md:-bottom-8 -right-2 bg-primary rounded-lg p-4 md:p-6 shadow-x border-4 border-white border-opacity-50">
+                        <p class="font-bold text-lg md:text-xl">2 года опыта</p>
+                        <p class="text-sm md:text-base">программист / разработчик</p>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="select-none order-1 lg:order-2">
+                    <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6 druk-font">Егор Нуруллин</h3>
+                    <p class="opacity-80 mb-4 md:mb-6 text-sm md:text-base lg:text-lg">Я — разработчик из Москвы, специализирующийся на создании сайтов и мобильных приложений</p>
+                    <p class="opacity-80 mb-4 md:mb-6 text-sm md:text-base lg:text-lg">За два года в профессии я понял, что ключ к успешному проекту — это комплексный подход. Поэтому в своей работе я одинаково ценю:</p>
+                    <p class="opacity-80 text-sm md:text-base lg:text-lg">• Чистый и поддерживаемый код как основу для долгосрочного развития продукта.</p>
+                    <p class="opacity-80 text-sm md:text-base lg:text-lg">• Соблюдение сроков как проявление уважения к клиенту.</p>
+                    <p class="opacity-80 text-sm md:text-base lg:text-lg">• Открытую коммуникацию для достижения наилучшего результата.</p>
+                    <p class="opacity-80 mb-6 md:mb-8 text-sm md:text-base lg:text-lg">• Творческий подход и внимание к дизайну, чтобы продукт был не только функциональным, но и привлекательным.</p>
+                    <p class="opacity-80 mb-6 md:mb-8 text-sm md:text-base lg:text-lg">Я всегда открыт для новых интересных задач и готов помочь вам реализовать вашу идею.</p>
+                    
+                    <!-- Rewards and Collaborations -->
+                    <!-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center mr-3 md:mr-4">
+                                <i class="ri-award-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm md:text-base lg:text-lg">Награды</h4>
+                                <p class="opacity-80 text-sm md:text-base lg:text-lg"></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center mr-3 md:mr-4">
+                                <i class="ri-film-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm md:text-base lg:text-lg">Проекты</h4>
+                                <p class="opacity-80 text-sm md:text-base lg:text-lg"></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start sm:col-span-2 lg:col-span-1">
+                            <div class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center mr-3 md:mr-4">
+                                <i class="ri-global-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm md:text-base lg:text-lg">Фестивали</h4>
+                                <p class="opacity-80 text-sm md:text-base lg:text-lg"></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start sm:col-span-2 lg:col-span-1">
+                            <div class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center mr-3 md:mr-4">
+                                <i class="ri-team-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm md:text-base lg:text-lg">Коллаборации</h4>
+                                <p class="opacity-80 text-sm md:text-base lg:text-lg"></p>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <span class="px-3 py-2 md:px-4 md:py-2 bg-black bg-opacity-50 border-2 border-white border-opacity-10 rounded text-xs md:text-sm">Frontend</span>
+                        <span class="px-3 py-2 md:px-4 md:py-2 bg-black bg-opacity-50 border-2 border-white border-opacity-10 rounded text-xs md:text-sm">Mobile Development</span>
+                        <span class="px-3 py-2 md:px-4 md:py-2 bg-black bg-opacity-50 border-2 border-white border-opacity-10 rounded text-xs md:text-sm">Web Development</span>
+                        <span class="px-3 py-2 md:px-4 md:py-2 bg-black bg-opacity-50 border-2 border-white border-opacity-10 rounded text-xs md:text-sm">Cross-platform</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Workspace -->
+            <div class="mt-12 md:mt-16">
+                <h3 class="text-xl md:text-2xl mb-6 md:mb-8 text-center druk-font select-none">Рабочее пространство</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 select-none">
+                    <div class="text-left md:text-right py-6 px-6">
+                        <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-4 md:ml-auto">
+                            <i class="ri-4k-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">Софт</h4>
+                        <ul class="opacity-80 text-sm md:text-base lg:text-lg space-y-2">
+                            <li class="flex items-center justify-between md:justify-end">
+                                <div class="flex items-center md:contents">
+                                    <i class="ri-git-pull-request-line mr-2 md:hidden"></i>
+                                    <span>IntelliJ IDEA Toolbox</span>
+                                </div>
+                                <i class="ri-git-pull-request-line hidden md:inline ml-2"></i>
+                            </li>
+                            <li class="flex items-center justify-between md:justify-end">
+                                <div class="flex items-center md:contents">
+                                    <i class="ri-git-fork-line mr-2 md:hidden"></i>
+                                    <span>VS CODE</span>
+                                </div>
+                                <i class="ri-git-fork-line hidden md:inline ml-2"></i>
+                            </li>
+                            <li class="flex items-center justify-between md:justify-end">
+                                <div class="flex items-center md:contents">
+                                    <i class="ri-git-branch-line mr-2 md:hidden"></i>
+                                    <span>Figma</span>
+                                </div>
+                                <i class="ri-git-branch-line hidden md:inline ml-2"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="py-6 px-6">
+                        <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-4">
+                            <i class="ri-computer-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">PC</h4>
+                        <ul class="opacity-80 text-sm md:text-base lg:text-lg space-y-2">
+                            <li><i class="ri-instance-line"></i> RTX 5060 Ti 8GB</li>
+                            <li><i class="ri-cpu-line"></i> Ryzen 5 5600</li>
+                            <li><i class="ri-ram-2-line"></i> RAM 32GB</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Grid Section
+    <section id="team" class="py-6 bg-black">
+        <div class="container mx-auto px-6 w-full mt-6">
+            <h2 class="heading-font text-3xl md:text-4xl text-center druk-font select-none"><a href="#team">Моя <span class="text-primary">Команда</span></a></h2>
+
+            Swiper elements navigation
+            <div class="flex justify-between items-center mb-4 mt-4">
+                <div class="swiper-button-prev-custom w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
+                    <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next-custom w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
+                    <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
+                </div>
+            </div>
+    
+            Swiper
+            <div class="swiper project-swiper pt-3 select-none">
+                <div class="swiper-wrapper">
+                    
+                    Team member 1 card (Project 7)
+                    <div class="swiper-slide">
+                        <div class="project-card rounded overflow-hidden relative h-160 border-4 border-white border-opacity-10" data-project-id="7">
+                            <picture>
+                                <source srcset="source/img.webp" media="(max-width: 600px)" type="image/webp">
+                                <source srcset="source/img.webp" media="(max-width: 1200px)" type="image/webp">
+                                <source srcset="source/img.webp" type="image/webp">
+                                <img src="source/img.webp" loading="lazy" alt="ИМЯ СОКОМАНДНИКА" 
+                                     class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                            </picture>                     
+                            <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <h3 class="text-xl mb-2 druk-font">ИМЯ СОКОМАНДНИКА</h3>
+                                <p class="text-sm opacity-80"> • </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-6 bg-black">
+        <div class="container mx-auto px-6 w-full mt-6">
+            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none"><a href="#contact">Остаемся на <span class="text-primary">Связи</span></a></h2>
+            <div class="max-w-4xl mx-auto text-left md:text-center">
+                <h3 class="text-2xl font-bold mb-6 select-none">Давайте это реализуем</h3>
+                <p class="opacity-80 text-sm md:text-lg mb-6 select-none">Я всегда открыт для новых интересных задач и готов помочь вам реализовать вашу идею.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-11">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                            <i class="ri-map-pin-line text-3xl md:text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg select-none">Локация</h4>
+                        <p class="text-lg opacity-80 select-none">Россия, Москва</p>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                            <i class="ri-mail-line text-3xl md:text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg select-none">Почта</h4>
+                        <p class="text-lg opacity-80 cursor-pointer hover:text-primary transition-colors flex items-center" 
+                            id="emailCopy" onclick="copyToClipboard('plzr3loadme@gmail.com', this)">
+                            plzr3loadme@gmail.com
+                            <i class="ri-file-copy-line ml-2 text-lg"></i>
+                        </p>
+                    </div>
+                        
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                            <i class="ri-phone-line text-3xl md:text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg select-none">Телефон</h4>
+                        <p class="text-lg opacity-80 cursor-pointer hover:text-primary transition-colors flex items-center" 
+                            id="phoneCopy" onclick="copyToClipboard('+79296311504', this)">
+                            +7 (929) 631-15-04
+                            <i class="ri-file-copy-line ml-2 text-lg"></i>
+                        </p>                            
+                    </div>
+
+                    <div class="flex flex-col items-center lg:col-span-3 lg:col-start-1">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                            <i class="ri-telegram-2-line text-3xl md:text-4xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg select-none">Telegram</h4>
+                        <a href="https://t.me/vultourjol" class="text-lg opacity-80 cursor-pointer hover:text-primary transition-colors flex items-center select-none">
+                            @vultourjol
+                            <i class="ri-link ml-2 text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-black">
+        <div class="mx-auto px-6 w-full">
+            <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
+                <a href="#hero" class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
+                <nav class="flex flex-wrap gap-x-8 gap-y-4 mt-6 lg:mt-8">
+                    <a href="#portfolio" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Портфолио</a>
+                    <a href="#showcase" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Новое</a>
+                    <a href="#about" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Обо мне</a>
+                    <a href="#contact" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Контакты</a>
+                </nav>
+            </div>
+            
+            <div class="border-t border-white border-opacity-10 pt-6">
+                <div class="flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-end space-y-3 md:space-y-0 md:space-x-4 lg:space-x-6 lg:text-right">
+                    <p class="text-sm opacity-60 text-center md:text-left lg:text-right"><a href="source/privacy-policy.pdf" class="hover:text-primary transition-colors select-none">Политика конфиденциальности</a></p>
+                    <p class="text-sm opacity-60 text-center md:text-center lg:text-right"><a href="https://policies.google.com/terms?hl=ru" class="hover:text-primary transition-colors select-none">Условия использования</a></p>
+                    <div class="text-center md:text-right lg:text-left">
+                        <p class="text-sm opacity-60 select-none">created by <a href="#hero" class="hover:text-primary transition-colors">me <i class="ri-code-s-slash-line"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div class="fixed inset-0 flex items-center justify-center z-50 project-modal hidden" id="modal-backdrop">
+        <div class="absolute inset-0 bg-black bg-opacity-80" id="modal-overlay"></div>
+        
+        <!-- Project 1 Modal -->
+        <div class="project-modal-content hidden" id="modal-project-1">
+            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-30 hover:bg-primary transition-colors duration-200 z-50">
+                    <i class="ri-close-line text-white text-2xl"></i>
+                </button>
+                <div class="relative h-[50vh]">
+                    <img src="source/soon.webp" alt="Обещаем, что скоро!" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">Ой, тут так пусто</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">хорошо</span> 
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">хоть</span> 
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">не</span> 
+                            <a href="#" class="px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                                <span>пыльно</span>
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-sm md:text-lg mb-8">Скоро здесь появится новый проект, на который можно будет взглянуть.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">Пока что...</h4>
+                            <p class="text-sm md:text-lg opacity-80">Можете посмотреть мои прошлые работы, вдруг что понравится.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">А еще!</h4>
+                            <p class="text-sm md:text-lg opacity-80">Можете связаться со мной, если у вас возникла идея.</p>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">Спасибо, что заглянули!</h4>
+                        <p class="text-sm md:text-lg opacity-80">Будем ждать вас как можно скорее!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 Modal -->
+        <!-- <div class="project-modal-content hidden" id="modal-project-2">
+            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-30 hover:bg-primary transition-colors duration-200 z-50">
+                    <i class="ri-close-line text-white text-2xl"></i>
+                </button>
+                <div class="relative h-[50vh]">
+                    <img src="source/img.webp" alt="img" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">placeholder</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">placeholder</span>
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">placeholder</span>
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">placeholder</span>
+                            <a href="#" class="w-16 h-10 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                                <i class="ri-play-fill text-white text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-sm md:text-lg mb-8">placeholder</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">placeholder</h4>
+                            <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                            <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                            <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                            <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">placeholder</h4>
+                            <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                            <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">placeholder</h4>
+                        <p class="text-sm md:text-lg opacity-80">placeholder</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+:where([class^="ri-"])::before { content: "\f3c2"; }
+        
+:root {
+    --dark-bg: #000000;
+    --dark-surface: #000000;
+    --accent-color: #CD3838;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+}
+        
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000000;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top);
+}
+
+header {
+    padding-top: env(safe-area-inset-top);
+    background-color: #000000;
+}
+
+html {
+    background-color: #000000;
+}
+
+.heading {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    padding: min(5vw, 50px);
+}
+        
+.heading-font {
+    font-family: 'Playfair Display', serif;
+}
+        
+.parallax {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid transparent;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    width: 0;
+    max-width: max-content; 
+    position: relative;
+    animation: 
+        cursor-appear 0.5s ease-in-out 0.5s forwards,
+        cursor-blink 0.75s step-end 1s infinite,
+        typing 3.5s steps(10000, end) 1.5s forwards;
+}
+
+@keyframes cursor-appear {
+    0% { 
+        border-right-color: transparent;
+    }
+    100% { 
+        border-right-color: var(--accent-color);
+    }
+}
+
+@keyframes cursor-blink {
+    0%, 50% { 
+        border-right-color: var(--accent-color);
+    }
+    51%, 100% { 
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typing {
+    0% { 
+        width: 0;
+    }
+    100% { 
+        width: 100%;
+    }
+}
+
+@keyframes cursor-final-hide {
+    0% { 
+        border-right-color: var(--accent-color);
+    }
+    100% { 
+        border-right-color: transparent;
+    }
+}
+
+.fade-in {
+    animation: fade-in 3s ease-in 3.5s forwards;
+    opacity: 0;
+}
+
+.floating {
+    animation: 
+        fade-in 1.5s ease-out 2s forwards,
+        floating 3s ease-in-out 1s infinite;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+        
+.floating-delay-1 {
+    animation: 
+        fade-in 1.5s ease-out 2.5s forwards,
+        floating 3s ease-in-out 1.5s infinite;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+        
+.floating-delay-2 {
+    animation: 
+        fade-in 1.5s ease-out 3s forwards,
+        floating 3s ease-in-out 2s infinite;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+.scroll-indicator {
+    animation: 
+        fade-in 1.5s ease-out 3.5s forwards,
+        pulse 3s ease-in-out 3s infinite;
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+        
+@keyframes pulse {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+        
+.hamburger-menu {
+    transition: all 0.3s ease-in-out;
+    z-index: 60; 
+}
+
+.hamburger-menu .bar {
+    transition: all 0.3s ease-in-out;
+}
+        
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+        
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+        
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.mobile-menu:not(.translate-x-full)::before {
+    opacity: 1;
+    visibility: visible; 
+}
+        
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card:hover .project-overlay {
+        opacity: 1;
+    }
+}
+        
+.project-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+        
+.custom-input {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+        
+.custom-input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
+}
+        
+.social-icon {
+    transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .social-icon:hover {
+        transform: rotate(360deg);
+    }
+}
+        
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+        
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9));
+    z-index: -1;
+}
+        
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    border-radius: 34px;
+}
+        
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+        
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+        
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.project-modal {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.project-modal.hidden {
+    pointer-events: none;
+}
+
+.project-modal:not(.hidden) {
+    opacity: 1;
+}
+
+.project-modal #modal-overlay {
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 1s ease-in-out;
+}
+
+.project-modal.show #modal-overlay {
+    backdrop-filter: blur(16px);
+}
+
+.project-modal-content {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.project-modal-content.scale-100 {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.project-card {
+    cursor: pointer;
+}
+
+.project-swiper {
+    padding: 10px;
+    margin: -10px;
+}
+
+.project-modal-content .modal-close {
+  position: fixed;
+  top: 16px; 
+  right: 16px; 
+  z-index: 100;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--accent-color);
+    opacity: 0.5;
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.swiper-button-next-custom,
+.swiper-button-prev-custom {
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .swiper-button-next-custom:hover,
+    .swiper-button-prev-custom:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 640px) {
+    .swiper-button-next-custom,
+    .swiper-button-prev-custom {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 640px) {
+    .typewriter {
+      font-size: 2rem;
+      letter-spacing: 1em;
+    }
+    
+    .project-overlay {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+  
+    .featured-project .absolute.bottom-0.left-0 {
+      padding: 1rem !important;
+    }
+  
+    .featured-project .heading-font {
+      font-size: 1.75rem !important;
+    }
+    
+    .featured-project .text-lg {
+      font-size: 1rem !important;
+    }
+    
+    .featured-project .flex.space-x-4 {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  
+    .featured-project .flex.space-x-4 > * {
+      margin-right: 0 !important;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .featured-project .heading-font {
+      font-size: 2.25rem !important;
+    }
+    
+    .project-overlay {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
+    }
+    
+    .featured-project .flex.space-x-4 {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+  
+    @media (max-width: 640px) {
+    .project-modal-content .p-8 {
+      padding: 1rem !important;
+    }
+    
+    .project-modal-content .h-50vh .p-8 {
+      padding: 0.75rem !important;
+    }
+    
+    .project-modal-content .heading-font {
+      font-size: 1.5rem !important;
+    }
+}
+
+@font-face {
+    font-family: "Druk Wide Cyr";
+    src: url("https://db.onlinewebfonts.com/t/e7fa3e0f70e1466b2f73ee1ac39c8c30.eot");
+    src: url("https://db.onlinewebfonts.com/t/e7fa3e0f70e1466b2f73ee1ac39c8c30.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/e7fa3e0f70e1466b2f73ee1ac39c8c30.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/e7fa3e0f70e1466b2f73ee1ac39c8c30.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/e7fa3e0f70e1466b2f73ee1ac39c8c30.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/e7fa3e0f70e1466b2f73ee1ac39c8c30.svg#Druk Wide Cyr")format("svg");
+}
+
+.druk-font {
+    font-family: "Druk Wide Cyr";
+}
+
+
+.text-justify-mobile {
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .text-justify-mobile {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        word-break: break-word;
+    }
+}
+
+@media (hover: hover) {
+    .hover\:text-primary:hover {
+        color: var(--accent-color);
+    }
+    
+    .hover\:bg-primary:hover {
+        background-color: var(--accent-color);
+    }
+    
+    .hover\:scale-110:hover {
+        transform: scale(1.1);
+    }
+}
+
+html, body {
+    background-color: #000000;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+    .typewriter {
+        font-size: 3.5rem !important; 
+    }
+}
+
+@media (max-width: 430px) and (orientation: portrait) {
+    .typewriter {
+        font-size: 1.8rem !important; 
+    }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+    .typewriter {
+        font-size: 1.6rem !important; 
+    }
+}
+
+@media (max-width: 1500px) and (orientation: landscape) {
+    .typewriter {
+        font-size: 5rem !important; 
+    }
+}
+
+.showcase-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.showcase-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.showcase-image.active {
+    opacity: 1;
+}
+
+.showcase-dot.active {
+    background-color: rgba(205, 56, 56, 1) !important;
+}
+
+.film-strip {
+    background: linear-gradient(to bottom, 
+        #121212 100%
+    );
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.film-strip::before {
+    content: '01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100 00001010 01000011 01101111 01100100 01100101 00100000 01101001 01110011 00100000 01110000 01101111 01100101 01110100 01110010 01111001 00001010 01001100 01101001 01100110 01100101 00100000 01101001 01110011 00100000 01100011 01101111 01100100 01100101 00001010 01010000 01110010 01101111 01100111 01110010 01100001 01101101 01101101 01101001 01101110 01100111 00100000 01101001 01110011 00100000 01100001 01110010 01110100 00001010 01000001 01110010 01110100 00100000 01101001 01110011 00100000 01110000 01110010 01101111 01100111 01110010 01100001 01101101 01101101 01101001 01101110 01100111 00001010 01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100 00001010 01000011 01101111 01100100 01100101 00100000 01101001 01110011 00100000 01110000 01101111 01100101 01110100 01110010 01111001 00001010 01001100 01101001 01100110 01100101 00100000 01101001 01110011 00100000 01100011 01101111 01100100 01100101 00001010 01010000 01110010 01101111 01100111 01110010 01100001 01101101 01101101 01101001 01101110 01100111 00100000 01101001 01110011 00100000 01100001 01110010 01110100 00001010 01000001 01110010 01110100 00100000 01101001 01110011 00100000 01110000 01110010 01101111 01100111 01110010 01100001 01101101 01101101 01101001 01101110 01100111 ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200%;
+    font-family: 'Courier New', monospace;
+    text-orientation: mixed;
+    opacity: 0.8;
+    overflow: hidden;
+    animation: binaryFlowCircular 15s linear infinite;
+    writing-mode: vertical-rl;
+    color: #CD3838;
+    font-size: 10px;
+    word-wrap: break-word;
+}
+
+@keyframes binaryFlowCircular {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
