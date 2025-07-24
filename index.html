@@ -114,19 +114,9 @@
     </section>
 
     <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="py-6">
+    <section id="portfolio" class="py-2 md:py-6">
         <div class="container mx-auto px-6 w-full mt-6">
-            <h2 class="heading-font text-3xl md:text-4xl text-center druk-font select-none"><a href="#portfolio">Мои <span class="text-primary">Проекты</span></a></h2>
-
-            <!-- Swiper elements navigation -->
-            <div class="flex justify-between items-center mb-4 mt-4 select-none">
-                <div class="swiper-button-prev-custom w-12 h-12 bg-black bg-opacity-10 backdrop-blur rounded-full flex items-center justify-center hover:bg-primary hover:bg-opacity-50 transition-colors border-2 border-primary border-opacity-10">
-                    <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
-                </div>
-                <div class="swiper-button-next-custom w-12 h-12 bg-black bg-opacity-10 backdrop-blur rounded-full flex items-center justify-center hover:bg-primary hover:bg-opacity-50 transition-colors border-2 border-primary border-opacity-10">
-                    <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
-                </div>
-            </div>
+            <h2 class="heading-font text-3xl md:text-4xl text-center druk-font select-none mb-4 md:mb-16"><a href="#portfolio">Мои <span class="text-primary">Проекты</span></a></h2>
     
             <!-- Swiper -->
             <div class="swiper project-swiper pt-3 select-none">
@@ -161,17 +151,52 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Soon -->
+                    <div class="swiper-slide">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="1">
+                            <div class="bg-[#0a0a0a] bg-opacity-10 backdrop-blur w-full h-full flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="ri-git-repository-line text-primary text-5xl mb-4"></i>
+                                    <h3 class="text-xl mb-2 druk-font">Скоро</h3>
+                                    <p class="text-sm opacity-80">Новый проект в разработке</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soon -->
+                    <div class="swiper-slide">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="1">
+                            <div class="bg-[#0a0a0a] bg-opacity-10 backdrop-blur w-full h-full flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="ri-git-repository-line text-primary text-5xl mb-4"></i>
+                                    <h3 class="text-xl mb-2 druk-font">Скоро</h3>
+                                    <p class="text-sm opacity-80">Новый проект в разработке</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Swiper elements navigation -->
+                <div class="flex justify-center items-center mt-4 text-center">
+                    <div class="flex flex-row items-center text-white opacity-50 select-none ">
+                        <i class="ri-arrow-left-line text-xl mr-2"></i>
+                        <span class="text-xs">Перетащите для прокрутки</span>
+                        <i class="ri-arrow-right-line text-xl ml-2"></i>
+                    </div>
                 </div>
                 
-                <!-- <div class="swiper-pagination mt-6 md:hidden"></div> -->
             </div>
         </div>
     </section>
 
     <!-- Project Showcase Section -->
-    <section id="showcase" class="py-6 select-none">
+    <section id="showcase" class="py-2 md:py-6 select-none">
         <div class="container mx-auto px-6 w-full mt-6">
-            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none"><a href="#showcase">Последний <span class="text-primary">Проект</span></a></h2>
+            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none mb-4 md:mb-16"><a href="#showcase">Последний <span class="text-primary">Проект</span></a></h2>
 
             <!-- Showcase 1 -->
             <div class="featured-project mb-10">
@@ -253,11 +278,13 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="bg-black bg-opacity-10 border-2 border-primary border-opacity-10 backdrop-blur p-4 rounded">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
                         <h4 class="text-xl font-bold mb-4">Технологии</h4>
-                        <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> Vanilla HTML</p>
-                        <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> JavaScript</p>
+                        <div class="bg-black bg-opacity-10 border-2 border-primary border-opacity-10 backdrop-blur p-4 rounded">
+                            <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> Vanilla HTML</p>
+                            <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> JavaScript</p>
+                        </div>
                     </div>
                     <div>
                         <h4 class="text-xl font-bold mb-4">Особенности</h4>
@@ -283,9 +310,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-6">
+    <section id="about" class="py-2 md:py-6">
         <div class="container mx-auto px-6 w-full mt-6">
-            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none"><a href="#about">Обо <span class="text-primary">Мне</span></a></h2>
+            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none mb-4 md:mb-16"><a href="#about">Обо <span class="text-primary">Мне</span></a></h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 
                 <!-- Main picture -->
@@ -371,7 +398,8 @@
             <div class="mt-12 md:mt-16">
                 <h3 class="text-xl md:text-2xl mb-6 md:mb-8 text-center druk-font select-none">Рабочее пространство</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 select-none">
-                    <div class="text-left md:text-right py-6 px-6">
+
+                    <div class="text-left md:text-right px-6">
                         <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-4 md:ml-auto">
                             <i class="ri-terminal-window-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
                         </div>
@@ -401,7 +429,7 @@
                         </ul>
                     </div>
                     
-                    <div class="py-6 px-6">
+                    <div class="px-6">
                         <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-4">
                             <i class="ri-computer-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
                         </div>
@@ -416,54 +444,11 @@
             </div>
         </div>
     </section>
- 
-    <!-- Team Grid Section
-    <section id="team" class="py-6">
-        <div class="container mx-auto px-6 w-full mt-6">
-            <h2 class="heading-font text-3xl md:text-4xl text-center druk-font select-none"><a href="#team">Моя <span class="text-primary">Команда</span></a></h2>
-
-            Swiper elements navigation
-            <div class="flex justify-between items-center mb-4 mt-4">
-                <div class="swiper-button-prev-custom w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
-                    <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next-custom w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
-                    <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
-                </div>
-            </div>
-    
-            Swiper
-            <div class="swiper project-swiper pt-3 select-none">
-                <div class="swiper-wrapper">
-                    
-                    Team member 1 card (Project 7)
-                    <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-160 border-4 border-white border-opacity-10" data-project-id="7">
-                            <picture>
-                                <source srcset="source/img.webp" media="(max-width: 600px)" type="image/webp">
-                                <source srcset="source/img.webp" media="(max-width: 1200px)" type="image/webp">
-                                <source srcset="source/img.webp" type="image/webp">
-                                <img src="source/img.webp" loading="lazy" alt="ИМЯ СОКОМАНДНИКА" 
-                                     class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
-                            </picture>                     
-                            <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
-                                <h3 class="text-xl mb-2 druk-font">ИМЯ СОКОМАНДНИКА</h3>
-                                <p class="text-sm opacity-80"> • </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-            </div>
-        </div>
-    </section> -->
 
     <!-- Contact Section -->
-    <section id="contact" class="py-6">
+    <section id="contact" class="py-2 md:py-6">
         <div class="container mx-auto px-6 w-full mt-6">
-            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none"><a href="#contact">Остаемся на <span class="text-primary">Связи</span></a></h2>
+            <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none mb-4 md:mb-16"><a href="#contact">Остаемся на <span class="text-primary">Связи</span></a></h2>
             <div class="max-w-4xl mx-auto text-left md:text-center">
                 <h3 class="text-2xl font-bold mb-6 select-none">Давайте это реализуем</h3>
                 <p class="opacity-80 text-sm md:text-lg mb-6 select-none">Я всегда открыт для новых интересных задач и готов помочь вам реализовать вашу идею.</p>
@@ -548,7 +533,7 @@
         <div class="absolute inset-0" id="modal-overlay"></div>
         
         <!-- Project 1 Modal -->
-        <div class="project-modal-content hidden" id="modal-project-1">
+        <!-- <div class="project-modal-content hidden" id="modal-project-1">
             <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
                 <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
                     <i class="ri-close-line text-white text-2xl"></i>
@@ -586,7 +571,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Project 2 Modal -->
         <!-- <div class="project-modal-content hidden" id="modal-project-2">
