@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 for (let i = 1; i < this.trail.length; i++) {
                     ctx.lineTo(this.trail[i].x, this.trail[i].y);
                 }
-                ctx.strokeStyle = `rgba(205, 56, 56, 0.2)`;
+                ctx.strokeStyle = `rgba(205, 56, 56, 1.0)`;
                 ctx.lineWidth = this.radius * 0.5;
                 ctx.stroke();
             }
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     ctx.beginPath();
                     ctx.moveTo(points[i].x, points[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = `rgba(205, 56, 56, ${opacity * 0.2})`;
+                    ctx.strokeStyle = `rgba(205, 56, 56, ${opacity * 0.4})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     ctx.beginPath();
                     ctx.moveTo(points[i].x, points[i].y);
                     ctx.lineTo(points[j].x, points[j].y);
-                    ctx.strokeStyle = `rgba(205, 56, 56, ${opacity * 0.3})`;
+                    ctx.strokeStyle = `rgba(205, 56, 56, ${opacity * 0.5})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
