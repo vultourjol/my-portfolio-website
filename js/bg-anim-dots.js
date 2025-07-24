@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let points = [];
     let pointCount = 0; // Будет вычислено в init()
-    const maxDist = 150; // Максимальное расстояние для соединения точек
+    const maxDist = 300; // Максимальное расстояние для соединения точек
 
     const mouse = {
         x: null,
@@ -29,10 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
         mouse.y = null;
     });
 
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    window.addEventListener('touchstart', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    window.addEventListener('touchmove', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
 
     // Цвета
-    const pointColor = 'rgba(205, 56, 56, 0.8)'; // #CD3838 с прозрачностью
-    const lineColor = 'rgba(205, 56, 56, 0.3)';
+    const pointColor = 'rgba(205, 56, 56, 1.0)'; // #CD3838 с прозрачностью
+    const lineColor = 'rgba(205, 56, 56, 1.0)';
 
     class Point {
         constructor() {

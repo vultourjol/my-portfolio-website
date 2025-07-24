@@ -373,21 +373,21 @@
                         </div>
                         <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">Софт</h4>
                         <ul class="text-sm md:text-base lg:text-lg space-y-2 border-2 border-primary border-opacity-10 rounded-lg p-4 bg-black bg-opacity-10 backdrop-blur">
-                            <li class="flex items-center justify-between md:justify-end hover:text-primary">
+                            <li class="flex items-center justify-between md:justify-end">
                                 <div class="flex items-center md:contents">
                                     <i class="ri-git-pull-request-line mr-2 md:hidden"></i>
                                     <span>IntelliJ IDEA Toolbox</span>
                                 </div>
                                 <i class="ri-git-pull-request-line hidden md:inline ml-2"></i>
                             </li>
-                            <li class="flex items-center justify-between md:justify-end hover:text-primary">
+                            <li class="flex items-center justify-between md:justify-end">
                                 <div class="flex items-center md:contents">
                                     <i class="ri-git-fork-line mr-2 md:hidden"></i>
                                     <span>VS CODE</span>
                                 </div>
                                 <i class="ri-git-fork-line hidden md:inline ml-2"></i>
                             </li>
-                            <li class="flex items-center justify-between md:justify-end hover:text-primary">
+                            <li class="flex items-center justify-between md:justify-end">
                                 <div class="flex items-center md:contents">
                                     <i class="ri-git-branch-line mr-2 md:hidden"></i>
                                     <span>Figma</span>
@@ -403,16 +403,16 @@
                         </div>
                         <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">PC</h4>
                         <ul class="text-sm md:text-base lg:text-lg space-y-2 border-2 border-primary border-opacity-10 rounded-lg p-4 bg-black bg-opacity-10 backdrop-blur">
-                            <li class="hover:text-primary"><i class="ri-instance-line"></i> RTX 5060 Ti 8GB</li>
-                            <li class="hover:text-primary"><i class="ri-cpu-line"></i> Ryzen 5 5600</li>
-                            <li class="hover:text-primary"><i class="ri-ram-2-line"></i> RAM 32GB</li>
+                            <li><i class="ri-instance-line"></i> RTX 5060 Ti 8GB</li>
+                            <li><i class="ri-cpu-line"></i> Ryzen 5 5600</li>
+                            <li><i class="ri-ram-2-line"></i> RAM 32GB</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+ 
     <!-- Team Grid Section
     <section id="team" class="py-6">
         <div class="container mx-auto px-6 w-full mt-6">
@@ -466,7 +466,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-11 bg-black bg-opacity-10 backdrop-blur rounded border-2 border-primary border-opacity-10 py-6">
                     <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary">
                             <i class="ri-map-pin-line text-3xl md:text-4xl"></i>
                         </div>
                         <h4 class="font-bold text-lg select-none">Локация</h4>
@@ -474,7 +474,7 @@
                     </div>
 
                     <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary">
                             <i class="ri-mail-line text-3xl md:text-4xl"></i>
                         </div>
                         <h4 class="font-bold text-lg select-none">Почта</h4>
@@ -486,7 +486,7 @@
                     </div>
                         
                     <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary">
                             <i class="ri-phone-line text-3xl md:text-4xl"></i>
                         </div>
                         <h4 class="font-bold text-lg select-none">Телефон</h4>
@@ -497,8 +497,8 @@
                         </p>                            
                     </div>
 
-                    <div class="flex flex-col items-center lg:col-span-3 lg:col-start-1">
-                        <div class="w-16 h-16 flex items-center justify-center text-primary bg-black bg-opacity-30 rounded-full">
+                    <div class="flex flex-col items-center lg:col-span-3 lg:col-start-1 lg:mt-6">
+                        <div class="w-16 h-16 flex items-center justify-center text-primary">
                             <i class="ri-telegram-2-line text-3xl md:text-4xl"></i>
                         </div>
                         <h4 class="font-bold text-lg select-none">Telegram</h4>
@@ -519,7 +519,7 @@
         <div class="mx-auto px-6 w-full">
             <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
                 <a href="#hero" class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
-                <nav class="flex flex-wrap gap-x-8 gap-y-4 mt-6 lg:mt-8">
+                <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:mt-8">
                     <a href="#portfolio" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Портфолио</a>
                     <a href="#showcase" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Новое</a>
                     <a href="#about" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Обо мне</a>
@@ -546,7 +546,7 @@
         <!-- Project 1 Modal -->
         <div class="project-modal-content hidden" id="modal-project-1">
             <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
-                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-30 hover:bg-primary transition-colors duration-200 z-50">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
                     <i class="ri-close-line text-white text-2xl"></i>
                 </button>
                 <div class="relative h-[50vh]">
