@@ -305,6 +305,23 @@ input:checked + .slider:before {
 
 .project-modal.show #modal-overlay {
     backdrop-filter: blur(16px);
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: backdrop-filter 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+.project-modal.closing #modal-overlay {
+    animation: modal-close-animation 1s ease-in-out forwards;
+}
+
+@keyframes modal-close-animation {
+    0% {
+        backdrop-filter: blur(16px);
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    100% {
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
 }
 
 .project-modal-content {

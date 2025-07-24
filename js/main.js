@@ -137,16 +137,35 @@ document.addEventListener("DOMContentLoaded", function() {
     const body = document.body;
 
     function closeAllModals() {
-        document.querySelectorAll(".project-modal-content, .team-modal-content").forEach(modal => {
+    const openModals = document.querySelectorAll(".project-modal-content:not(.hidden), .team-modal-content:not(.hidden)");
+    
+    if (openModals.length === 0) return; // Нет открытых модальных окон
+    
+    // Добавляем класс closing к backdrop для анимации
+    if (modalBackdrop) {
+        modalBackdrop.classList.add("closing");
+        modalBackdrop.classList.remove("show");
+    }
+    
+    // Убираем классы для начала анимации закрытия
+    openModals.forEach(modal => {
+        modal.classList.remove("opacity-100", "scale-100");
+    });
+    
+    // После завершения анимации (1 секунда) полностью скрываем модальные окна
+    setTimeout(() => {
+        openModals.forEach(modal => {
             modal.classList.add("hidden");
-            modal.classList.remove("opacity-100", "scale-100"); 
         });
+        
         if (modalBackdrop) {
             modalBackdrop.classList.add("hidden");
-            modalBackdrop.classList.remove("opacity-100", "show");
+            modalBackdrop.classList.remove("opacity-100", "closing");
         }
+        
         body.classList.remove("overflow-hidden");
-    }
+    }, 1000); // 1 секунда - время анимации из CSS
+}
 
     document.querySelectorAll(".modal-close").forEach(button => {
         button.addEventListener("click", closeAllModals);
