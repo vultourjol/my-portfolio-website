@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const projectSwiper = new Swiper(".project-swiper", {
         slidesPerView: 1,
         spaceBetween: 20,
-        grabCursor: true,
+        loop: true,
         
         breakpoints: {
             640: {
