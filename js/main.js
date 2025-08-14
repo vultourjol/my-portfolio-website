@@ -259,50 +259,73 @@ window.addEventListener("scroll", function() {
 });
 
 // Showcase image gallery functionality
+// Showcase image galleries (supports multiple instances + keyboard arrows)
 document.addEventListener('DOMContentLoaded', function() {
-    const showcaseImages = document.querySelectorAll('.showcase-image');
-    const showcaseDots = document.querySelectorAll('.showcase-dot');
-    const prevBtn = document.querySelector('.showcase-prev');
-    const nextBtn = document.querySelector('.showcase-next');
-    let currentIndex = 0;
+	const galleries = [];
 
-    function showImage(index) {
-        // Hide all images
-        showcaseImages.forEach(img => img.classList.remove('active'));
-        showcaseDots.forEach(dot => dot.classList.remove('active'));
-        
-        // Show current image
-        showcaseImages[index].classList.add('active');
-        showcaseDots[index].classList.add('active');
-        
-        currentIndex = index;
-    }
+	document.querySelectorAll('.showcase-images').forEach(imagesContainer => {
+		const root = imagesContainer.closest('[data-gallery]') || imagesContainer.parentElement;
+		const images = imagesContainer.querySelectorAll('.showcase-image');
+		const dots = root.querySelectorAll('.showcase-dot');
+		const prevBtn = root.querySelector('.showcase-prev');
+		const nextBtn = root.querySelector('.showcase-next');
 
-    function nextImage() {
-        const newIndex = (currentIndex + 1) % showcaseImages.length;
-        showImage(newIndex);
-    }
+		let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+		if (currentIndex < 0) currentIndex = 0;
 
-    function prevImage() {
-        const newIndex = (currentIndex - 1 + showcaseImages.length) % showcaseImages.length;
-        showImage(newIndex);
-    }
+		function showImage(index) {
+			images.forEach(img => img.classList.remove('active'));
+			dots.forEach(dot => dot.classList.remove('active'));
+			if (images[index]) images[index].classList.add('active');
+			if (dots[index]) dots[index].classList.add('active');
+			currentIndex = index;
+		}
 
-    // Event listeners
-    nextBtn.addEventListener('click', nextImage);
-    prevBtn.addEventListener('click', prevImage);
+		function nextImage() {
+			if (!images.length) return;
+			const newIndex = (currentIndex + 1) % images.length;
+			showImage(newIndex);
+		}
 
-    // Dot navigation
-    showcaseDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showImage(index));
-    });
+		function prevImage() {
+			if (!images.length) return;
+			const newIndex = (currentIndex - 1 + images.length) % images.length;
+			showImage(newIndex);
+		}
 
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') prevImage();
-        if (e.key === 'ArrowRight') nextImage();
-    });
+		if (nextBtn) nextBtn.addEventListener('click', nextImage);
+		if (prevBtn) prevBtn.addEventListener('click', prevImage);
+		dots.forEach((dot, index) => dot.addEventListener('click', () => showImage(index)));
 
-    // Auto-play (optional)
-    // setInterval(nextImage, 5000);
+		showImage(currentIndex);
+
+		galleries.push({ root, nextImage, prevImage });
+	});
+
+	function getActiveGallery() {
+		const modalBackdrop = document.getElementById('modal-backdrop');
+		const modalOpen = modalBackdrop && !modalBackdrop.classList.contains('hidden');
+		if (modalOpen) {
+			const modalImages = document.querySelector('#modal-backdrop .project-modal-content:not(.hidden) .showcase-images');
+			if (modalImages) {
+				const modalRoot = modalImages.closest('[data-gallery]') || modalImages.parentElement;
+				return galleries.find(g => g.root === modalRoot);
+			}
+		}
+		return galleries[0];
+	}
+
+	document.addEventListener('keydown', function(e) {
+		if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+		const gallery = getActiveGallery();
+		if (!gallery) return;
+
+		if (e.key === 'ArrowLeft') gallery.prevImage();
+		if (e.key === 'ArrowRight') gallery.nextImage();
+
+		const modalBackdrop = document.getElementById('modal-backdrop');
+		if (modalBackdrop && !modalBackdrop.classList.contains('hidden')) {
+			e.preventDefault();
+		}
+	});
 });
