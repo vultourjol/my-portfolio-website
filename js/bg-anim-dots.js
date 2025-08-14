@@ -45,8 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // Цвета
-    const pointColor = 'rgba(205, 56, 56, 1.0)'; // #CD3838 с прозрачностью
+    const pointColor = 'rgba(205, 56, 56, 1.0)'; 
     const lineColor = 'rgba(205, 56, 56, 1.0)';
 
     class Point {
@@ -56,12 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
             this.vx = (Math.random() - 0.5) * 0.5;
             this.vy = (Math.random() - 0.5) * 0.5;
             this.radius = Math.random() * 1.5 + 1;
-            // "Хвост" для эффекта движения
             this.trail = [];
         }
 
         update() {
-            // Взаимодействие с мышью (отталкивание)
             if (mouse.x !== null) {
                 const dx = this.x - mouse.x;
                 const dy = this.y - mouse.y;
@@ -76,11 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
             this.x += this.vx;
             this.y += this.vy;
 
-            // Возвращение в пределы экрана
             if (this.x < 0 || this.x > width) this.vx *= -1;
             if (this.y < 0 || this.y > height) this.vy *= -1;
 
-            // Обновление хвоста
             this.trail.push({ x: this.x, y: this.y });
             if (this.trail.length > 5) {
                 this.trail.shift();
@@ -88,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         draw() {
-            // Рисуем хвост
             if (this.trail.length > 1) {
                 ctx.beginPath();
                 ctx.moveTo(this.trail[0].x, this.trail[0].y);
@@ -100,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 ctx.stroke();
             }
 
-            // Рисуем саму точку
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fillStyle = pointColor;
@@ -109,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function init() {
-        // Пересчитываем количество точек при изменении размера
         pointCount = Math.floor((width * height) / 18000);
         points = [];
         for (let i = 0; i < pointCount; i++) {
@@ -124,10 +116,9 @@ document.addEventListener('DOMContentLoaded', function () {
             points[i].update();
             points[i].draw();
 
-            // Соединение с курсором мыши
             if (mouse.x !== null) {
                 const distToMouse = Math.hypot(points[i].x - mouse.x, points[i].y - mouse.y);
-                if (distToMouse < maxDist * 1.5) { // Увеличим радиус для линий к мыши
+                if (distToMouse < maxDist * 1.5) { 
                     const opacity = 1 - (distToMouse / (maxDist * 1.5));
                     ctx.beginPath();
                     ctx.moveTo(points[i].x, points[i].y);
@@ -155,12 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         requestAnimationFrame(animate);
     }
-
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        init(); // Пересоздаем точки при изменении размера окна
-    });
 
     init();
     animate();
