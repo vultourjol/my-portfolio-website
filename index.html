@@ -122,10 +122,28 @@
             <!-- Swiper -->
             <div class="swiper project-swiper pt-3 select-none">
                 <div class="swiper-wrapper">
-                    
-                    <!-- Project 1 -->
+
+                    <!-- Project ] -->
                     <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="1">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="]">
+                            <picture>
+                                <source srcset="source/project3.webp" media="(max-width: 600px)" type="image/webp">
+                                <source srcset="source/project3.webp" media="(max-width: 1200px)" type="image/webp">
+                                <source srcset="source/project3.webp" type="image/webp">
+                                <img src="source/project3.webp" loading="lazy" alt="16/9" 
+                                     class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                            </picture>                     
+                            <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
+                                <h3 class="text-xl mb-2 druk-font"><span class="text-primary">< в разработке ></span></h3>
+                                <h3 class="text-xl mb-2 druk-font">Сайт студии видеопроизводства</h3>
+                                <p class="text-sm opacity-80">С формами обратной связи</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="swiper-slide">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="2">
                             <picture>
                                 <source srcset="source/project2.webp" media="(max-width: 600px)" type="image/webp">
                                 <source srcset="source/project2.webp" media="(max-width: 1200px)" type="image/webp">
@@ -140,18 +158,7 @@
                         </div>
                     </div>
 
-                    <!-- Soon -->
-                    <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="99">
-                            <div class="bg-[#0a0a0a] bg-opacity-10 backdrop-blur w-full h-full flex items-center justify-center">
-                                <div class="text-center">
-                                    <i class="ri-git-repository-line text-primary text-5xl mb-4"></i>
-                                    <h3 class="text-xl mb-2 druk-font">Скоро</h3>
-                                    <p class="text-sm opacity-80">Новый проект в разработке</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <!-- Soon -->
                     <div class="swiper-slide">
@@ -271,6 +278,7 @@
                         <div class="bg-black bg-opacity-10 border-2 border-primary border-opacity-10 backdrop-blur p-4 rounded">
                             <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> Vanilla HTML</p>
                             <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> JavaScript</p>
+                            <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> CSS</p>
                         </div>
                     </div>
                     <div>
@@ -518,9 +526,102 @@
     <!-- Project Modals -->
     <div class="fixed inset-0 flex items-center justify-center z-50 project-modal hidden" id="modal-backdrop">
         <div class="absolute inset-0" id="modal-overlay"></div>
-        
-        <!-- Project 1 Modal -->
-        <div class="project-modal-content hidden" id="modal-project-1">
+
+        <!-- Project ] Modal -->
+        <div class="project-modal-content hidden" id="modal-project-]">
+            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
+                    <i class="ri-close-line text-white text-2xl"></i>
+                </button>
+
+                <div class="relative h-[50vh]" data-gallery>
+                    <button class="showcase-prev absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-2 border-primary border-opacity-10">
+                        <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
+                    </button>
+                    <button class="showcase-next absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-2 border-primary border-opacity-10">
+                        <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
+                    </button>
+                
+                    <div class="showcase-images">
+                        <picture class="showcase-image active">
+                            <source srcset="source/project3.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project3.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project3.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project3.webp" type="image/webp">
+                            <img src="source/project3.webp" loading="lazy" alt="Project 1 - Image 1" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project3.1.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project3.1.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project3.1.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project3.1.webp" type="image/webp">
+                            <img src="source/project3.1.webp" loading="lazy" alt="Project 1 - Image 2" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project3.2.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project3.2.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project3.2.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project3.2.webp" type="image/webp">
+                            <img src="source/project3.2.webp" loading="lazy" alt="Project 1 - Image 3" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                        <picture class="showcase-image">
+                            <source srcset="source/project3.3.webp" media="(max-width: 480)" type="image/webp">
+                            <source srcset="source/project3.3.webp" media="(max-width: 720)" type="image/webp">
+                            <source srcset="source/project3.3.webp" media="(max-width: 1200px)" type="image/webp">
+                            <source srcset="source/project3.3.webp" type="image/webp">
+                            <img src="source/project3.3.webp" loading="lazy" alt="Project 1 - Image 3" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
+                        </picture>
+                    </div>
+                
+                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity active" data-index="0"></button>
+                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="1"></button>
+                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="2"></button>
+                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="3"></button>
+                    </div>
+                
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font"><span class="text-primary">< в разработке ></span></h3>
+                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">Сайт студии видеопроизводства</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a class="px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">
+                                <span>Vanilla HTML</span>
+                            </a> 
+                            <a class="px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">
+                                <span>JavaScript</span>
+                            </a> 
+                            <a class="px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">
+                                <span>CSS</span>
+                            </a> 
+                            <a href="https://github.com/vultourjol/recording-studio-website" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                                <span class="text-sm">Github <i class="ri-github-fill text-white text-xl"></i></span>
+                            </a>
+                            <a href="https://vultourjol.github.io/recording-studio-website/" class="shine-effect px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded text-sm hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                                <span>16/9 <i class="ri-vidicon-line"></i></span>
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8">
+                    <p class="text-sm md:text-lg mb-8">Студия видеопроизводства предлагает полный спектр услуг по созданию высококачественного видеоконтента, от разработки концепции до финального монтажа.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">Особенности</h4>
+                            <p class="text-sm md:text-lg opacity-80">Удобная навигация, которая позволяет легко найти информацию о всех услугах, и подробное портфолио с примерами работ, демонстрирующее опыт и креативность студии.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">А также</h4>
+                            <p class="text-sm md:text-lg opacity-80">На сайте есть простая и более подробная форма обратной связи для быстрой консультации и заказа проекта.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 Modal -->
+        <div class="project-modal-content hidden" id="modal-project-2">
             <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
                 <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
                     <i class="ri-close-line text-white text-2xl"></i>
