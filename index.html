@@ -54,7 +54,22 @@
       body {
         overscroll-behavior-y: contain;
         background: transparent;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
       }
+
+      #bg-lines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+        height: calc(100vh + constant(safe-area-inset-top) + constant(safe-area-inset-bottom));
+        }
       .safe-top {
         padding-top: env(safe-area-inset-top);
         padding-top: constant(safe-area-inset-top); 
@@ -75,7 +90,7 @@
         -webkit-backdrop-filter: blur(10px);
         z-index: 49;
         pointer-events: none;
-      }
+    }
       .bottom-bar-overlay {
         position: fixed;
         bottom: 0;
@@ -88,14 +103,18 @@
         -webkit-backdrop-filter: blur(10px);
         z-index: 49;
         pointer-events: none;
-      }
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
     </style>
 </head>
 <body>
     <div class="status-bar-overlay"></div>
     <div class="bottom-bar-overlay"></div>
-    <canvas id="bg-lines" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;"></canvas>
-    
+    <canvas id="bg-lines"></canvas>    
     <!-- Header Navigation -->
     <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur safe-top -translate-y-full">
         <div class="mx-auto px-6 w-full py-4 flex justify-between items-center">
