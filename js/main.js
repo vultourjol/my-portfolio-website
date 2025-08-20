@@ -1,4 +1,5 @@
 const isMobile = false; 
+let projectSwipers = []; // Выносим в глобальную область
 
 function deferNonEssentialScripts() {
     if (isMobile) {
@@ -192,30 +193,147 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const projectSwiper = new Swiper(".project-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 20,
+    const swiperConfig = {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
         loop: true,
-        
         breakpoints: {
-            640: {
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            }
+            640: { slidesPerView: 1, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 20 }
         },
-        
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
         },
-        
         navigation: {
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
+        },
+        keyboard: {
+            enabled: false,
+            onlyInViewport: true,
+            pageUpDown: false
+        },
+        mousewheel: {
+            enabled: false,          
+            forceToAxis: true,       
+            releaseOnEdges: true,    
+            sensitivity: 1
+        }
+    };
+
+    projectSwipers = Array.from(document.querySelectorAll(".project-swiper"))
+        .map(el => new Swiper(el, swiperConfig));
+
+    function activateSwiper(swiperInstance) {
+        projectSwipers.forEach(sw => {
+            sw.keyboard.disable();
+            if (sw.mousewheel) sw.mousewheel.disable();
+        });
+        if (swiperInstance) {
+            if (swiperInstance.keyboard) swiperInstance.keyboard.enable();
+            if (swiperInstance.mousewheel) swiperInstance.mousewheel.enable();
+        }
+    }
+
+    projectSwipers.forEach(sw => {
+    ['mouseenter','touchstart','focusin'].forEach(evt => {
+        sw.el.addEventListener(evt, () => activateSwiper(sw));
+    });
+    
+    // Добавляем обработчики для деактивации
+    ['mouseleave','blur'].forEach(evt => {
+        sw.el.addEventListener(evt, () => {
+            if (sw.keyboard) sw.keyboard.disable();
+            if (sw.mousewheel) sw.mousewheel.disable();
+        });
+    });
+    
+    if (!sw.el.hasAttribute('tabindex')) {
+        sw.el.setAttribute('tabindex', '0');
+    }
+});
+
+    // Галереи и обработчик клавиш
+    const galleries = [];
+
+    document.querySelectorAll('.showcase-images').forEach(imagesContainer => {
+        const root = imagesContainer.closest('[data-gallery]') || imagesContainer.parentElement;
+        const images = imagesContainer.querySelectorAll('.showcase-image');
+        const dots = root.querySelectorAll('.showcase-dot');
+        const prevBtn = root.querySelector('.showcase-prev');
+        const nextBtn = root.querySelector('.showcase-next');
+
+        let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+        if (currentIndex < 0) currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (images[index]) images[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
+            currentIndex = index;
+        }
+
+        function nextImage() {
+            if (!images.length) return;
+            const newIndex = (currentIndex + 1) % images.length;
+            showImage(newIndex);
+        }
+
+        function prevImage() {
+            if (!images.length) return;
+            const newIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(newIndex);
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', nextImage);
+        if (prevBtn) prevBtn.addEventListener('click', prevImage);
+        dots.forEach((dot, index) => dot.addEventListener('click', () => showImage(index)));
+
+        showImage(currentIndex);
+
+        galleries.push({ root, nextImage, prevImage });
+    });
+
+    // Обработчик клавиш
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalOpen = modalBackdrop && !modalBackdrop.classList.contains('hidden');
+        
+        // Если модальное окно открыто, обрабатываем только галерею в модальном окне
+        if (modalOpen) {
+            const modalImages = document.querySelector('#modal-backdrop .project-modal-content:not(.hidden) .showcase-images');
+            if (modalImages) {
+                const modalRoot = modalImages.closest('[data-gallery]') || modalImages.parentElement;
+                const gallery = galleries.find(g => g.root === modalRoot);
+                if (gallery) {
+                    if (e.key === 'ArrowLeft') gallery.prevImage();
+                    if (e.key === 'ArrowRight') gallery.nextImage();
+                    e.preventDefault();
+                }
+            }
+            return;
+        }
+        
+        // Если модальное окно закрыто, проверяем активный свайпер
+        const activeSwiper = projectSwipers.find(sw => 
+            sw.keyboard && sw.keyboard.enabled
+        );
+        
+        if (activeSwiper) {
+            // Позволяем свайперу обработать клавиши - не блокируем
+            return;
+        }
+        
+        // Если нет активного свайпера, обрабатываем основную галерею
+        const gallery = galleries[0];
+        if (gallery) {
+            if (e.key === 'ArrowLeft') gallery.prevImage();
+            if (e.key === 'ArrowRight') gallery.nextImage();
+            e.preventDefault();
         }
     });
 
@@ -231,11 +349,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     if (window.innerWidth <= 640) {
-        const projectSwiperInstance = document.querySelector(".project-swiper").swiper;
-        if (projectSwiperInstance) {
-            projectSwiperInstance.params.slidesPerView = 1;
-            projectSwiperInstance.params.spaceBetween = 10;
-            projectSwiperInstance.update();
+        const projectSwiperInstance = document.querySelector(".project-swiper");
+        if (projectSwiperInstance && projectSwiperInstance.swiper) {
+            projectSwiperInstance.swiper.params.slidesPerView = 1;
+            projectSwiperInstance.swiper.params.spaceBetween = 10;
+            projectSwiperInstance.swiper.update();
         }
     }
 });
@@ -251,74 +369,4 @@ window.addEventListener("scroll", function() {
         header.classList.add("-translate-y-full");
         header.classList.remove("translate-y-0");
     }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-	const galleries = [];
-
-	document.querySelectorAll('.showcase-images').forEach(imagesContainer => {
-		const root = imagesContainer.closest('[data-gallery]') || imagesContainer.parentElement;
-		const images = imagesContainer.querySelectorAll('.showcase-image');
-		const dots = root.querySelectorAll('.showcase-dot');
-		const prevBtn = root.querySelector('.showcase-prev');
-		const nextBtn = root.querySelector('.showcase-next');
-
-		let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
-		if (currentIndex < 0) currentIndex = 0;
-
-		function showImage(index) {
-			images.forEach(img => img.classList.remove('active'));
-			dots.forEach(dot => dot.classList.remove('active'));
-			if (images[index]) images[index].classList.add('active');
-			if (dots[index]) dots[index].classList.add('active');
-			currentIndex = index;
-		}
-
-		function nextImage() {
-			if (!images.length) return;
-			const newIndex = (currentIndex + 1) % images.length;
-			showImage(newIndex);
-		}
-
-		function prevImage() {
-			if (!images.length) return;
-			const newIndex = (currentIndex - 1 + images.length) % images.length;
-			showImage(newIndex);
-		}
-
-		if (nextBtn) nextBtn.addEventListener('click', nextImage);
-		if (prevBtn) prevBtn.addEventListener('click', prevImage);
-		dots.forEach((dot, index) => dot.addEventListener('click', () => showImage(index)));
-
-		showImage(currentIndex);
-
-		galleries.push({ root, nextImage, prevImage });
-	});
-
-	function getActiveGallery() {
-		const modalBackdrop = document.getElementById('modal-backdrop');
-		const modalOpen = modalBackdrop && !modalBackdrop.classList.contains('hidden');
-		if (modalOpen) {
-			const modalImages = document.querySelector('#modal-backdrop .project-modal-content:not(.hidden) .showcase-images');
-			if (modalImages) {
-				const modalRoot = modalImages.closest('[data-gallery]') || modalImages.parentElement;
-				return galleries.find(g => g.root === modalRoot);
-			}
-		}
-		return galleries[0];
-	}
-
-	document.addEventListener('keydown', function(e) {
-		if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-		const gallery = getActiveGallery();
-		if (!gallery) return;
-
-		if (e.key === 'ArrowLeft') gallery.prevImage();
-		if (e.key === 'ArrowRight') gallery.nextImage();
-
-		const modalBackdrop = document.getElementById('modal-backdrop');
-		if (modalBackdrop && !modalBackdrop.classList.contains('hidden')) {
-			e.preventDefault();
-		}
-	});
 });
