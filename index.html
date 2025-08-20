@@ -53,14 +53,30 @@
     <style>
       body {
         overscroll-behavior-y: contain;
+        background: transparent;
       }
       .safe-top {
         padding-top: env(safe-area-inset-top);
         padding-top: constant(safe-area-inset-top); 
       }
+      .status-bar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-top, 44px);
+        height: constant(safe-area-inset-top, 44px);
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 49;
+        pointer-events: none;
+      }
     </style>
 </head>
 <body>
+    <div class="status-bar-overlay"></div>
+
     <canvas id="bg-lines" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;"></canvas>
     
     <!-- Header Navigation -->
