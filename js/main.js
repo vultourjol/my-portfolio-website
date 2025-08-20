@@ -2,10 +2,8 @@ const isMobile = false;
 
 function deferNonEssentialScripts() {
     if (isMobile) {
-        // window.addEventListener("load", initializeCustomCursor);
         window.addEventListener("load", initializeParallaxEffects);
     } else {
-        // initializeCustomCursor();
         initializeParallaxEffects();
     }
 }
@@ -139,20 +137,17 @@ document.addEventListener("DOMContentLoaded", function() {
     function closeAllModals() {
     const openModals = document.querySelectorAll(".project-modal-content:not(.hidden), .team-modal-content:not(.hidden)");
     
-    if (openModals.length === 0) return; // Нет открытых модальных окон
+    if (openModals.length === 0) return; 
     
-    // Добавляем класс closing к backdrop для анимации
     if (modalBackdrop) {
         modalBackdrop.classList.add("closing");
         modalBackdrop.classList.remove("show");
     }
     
-    // Убираем классы для начала анимации закрытия
     openModals.forEach(modal => {
         modal.classList.remove("opacity-100", "scale-100");
     });
     
-    // После завершения анимации (1 секунда) полностью скрываем модальные окна
     setTimeout(() => {
         openModals.forEach(modal => {
             modal.classList.add("hidden");
@@ -164,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         body.classList.remove("overflow-hidden");
-    }, 1000); // 1 секунда - время анимации из CSS
+    }, 1000); 
 }
 
     document.querySelectorAll(".modal-close").forEach(button => {
@@ -258,8 +253,6 @@ window.addEventListener("scroll", function() {
     }
 });
 
-// Showcase image gallery functionality
-// Showcase image galleries (supports multiple instances + keyboard arrows)
 document.addEventListener('DOMContentLoaded', function() {
 	const galleries = [];
 

@@ -1,0 +1,16 @@
+{
+  "name": "VULTOURJOL Portfolio",
+  "short_name": "VULTOURJOL",
+  "description": "Portfolio website of Egor Nurullin - Frontend Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#CD3838",
+  "icons": [
+    {
+      "src": "source/apple-touch-icon-240x240.png",
+      "sizes": "240x240",
+      "type": "image/png"
+    }
+  ]
+}
