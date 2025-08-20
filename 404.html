@@ -6,8 +6,13 @@
     <title>404 - Страница не найдена | vultourjol</title> 
        
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="source/code-box-fill-16px.png" id="favicon-16">
-    <link rel="icon" type="image/png" sizes="32x32" href="source/code-box-fill-32px.png" id="favicon-32">
+    <link rel="icon" type="image/png" href="/source/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/source/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/source/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/source/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="vultourjol" />
+    <link rel="manifest" href="/source/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/source/safari-pinned-tab.svg" color="#CD3838">
 
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
@@ -44,42 +49,31 @@
     <style>
       body {
         overscroll-behavior-y: contain;
+        background: transparent;
+      }
+      .safe-top {
+        padding-top: env(safe-area-inset-top);
+        padding-top: constant(safe-area-inset-top); 
+      }
+      .status-bar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-top, 44px);
+        height: constant(safe-area-inset-top, 44px);
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 49;
+        pointer-events: none;
       }
     </style>
 </head>
 <body>
+    <div class="status-bar-overlay"></div>
+
     <canvas id="bg-lines" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;"></canvas>
-
-    <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur -translate-y-full">
-        <div class="mx-auto px-6 w-full py-4 flex justify-between items-center">
-
-            <a href="#hero" class="text-white druk-font text-2xl select-none">VULTOURJOL</a>
-
-            <div class="hamburger-menu lg:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer z-50">
-                <span class="bar w-6 h-0.5 bg-white mb-1.5 transition-all"></span>
-                <span class="bar w-6 h-0.5 bg-white mb-1.5 transition-all"></span>
-                <span class="bar w-6 h-0.5 bg-white transition-all"></span>
-            </div>  
-            
-            <nav class="hidden lg:flex space-x-8">
-                <a href="#portfolio" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Портфолио</a>
-                <a href="#showcase" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Новое</a>
-                <a href="#about" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Обо мне</a>
-                <a href="#contact" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Контакты</a>
-            </nav>
-            
-            <div class="mobile-menu fixed top-0 right-0 w-80 h-full transform translate-x-full transition-transform duration-300 ease-in-out z-40">
-                <nav class="flex flex-col items-center justify-center w-full h-screen space-y-16 px-6">
-                    <a href="#portfolio" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">Портфолио</a>
-                    <a href="#showcase" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">Новое</a>
-                    <a href="#about" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">Обо мне</a>
-                    <a href="#contact" class="text-white hover:text-primary text-xl uppercase  tracking-wider py-2 px-1 select-none">Контакты</a>
-                </nav>
-            </div>
-
-        </div>
-    </header>
 
     <main>
 
@@ -111,32 +105,8 @@
                 </a>
             </div>
         </section>
+        
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur">
-            <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
-                <a href="#hero" class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
-                <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:mt-8">
-                    <a href="#portfolio" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Портфолио</a>
-                    <a href="#showcase" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Новое</a>
-                    <a href="#about" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Обо мне</a>
-                    <a href="#contact" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Контакты</a>
-                </nav>
-            </div>
-            
-            <div class="border-t border-white border-opacity-10 py-6">
-                <div class="flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-end space-y-3 md:space-y-0 md:space-x-4 lg:space-x-6 lg:text-right">
-                    <p class="text-sm opacity-60 text-left md:text-left lg:text-right"><a href="source/privacy-policy.pdf" class="hover:text-primary transition-colors select-none">Политика конфиденциальности</a></p>
-                    <p class="text-sm opacity-60 text-left md:text-center lg:text-right"><a href="https://policies.google.com/terms?hl=ru" class="hover:text-primary transition-colors select-none">Условия использования</a></p>
-                    <div class="text-left md:text-right lg:text-left">
-                        <p class="text-sm opacity-60 select-none">created by <a href="#hero" class="hover:text-primary transition-colors">me <i class="ri-code-s-slash-line"></i></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script src="js/main.js"></script>
     <script src="js/bg-anim-dots.js"></script>
