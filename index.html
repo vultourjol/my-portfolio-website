@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="theme-color" content="#00000000" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#00000000" media="(prefers-color-scheme: dark)">
     <title>vultourjol</title>   
@@ -59,6 +59,10 @@
         padding-top: env(safe-area-inset-top);
         padding-top: constant(safe-area-inset-top); 
       }
+      .safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: constant(safe-area-inset-bottom); 
+      }
       .status-bar-overlay {
         position: fixed;
         top: 0;
@@ -72,11 +76,24 @@
         z-index: 49;
         pointer-events: none;
       }
+      .bottom-bar-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-bottom, 34px);
+        height: constant(safe-area-inset-bottom, 34px);
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 49;
+        pointer-events: none;
+      }
     </style>
 </head>
 <body>
     <div class="status-bar-overlay"></div>
-
+    <div class="bottom-bar-overlay"></div>
     <canvas id="bg-lines" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;"></canvas>
     
     <!-- Header Navigation -->
@@ -543,7 +560,7 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="safe-bottom">
         <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur">
             <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
                 <a href="#hero" class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
