@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#00000000" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#00000000" media="(prefers-color-scheme: dark)">
+    <title>Новости - vultourjol</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/source/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/source/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/source/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/source/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="prodbylelya" />
+    <link rel="manifest" href="/source/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/source/safari-pinned-tab.svg" color="#EAA124">
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CD3838',
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+      body {
+        overscroll-behavior-y: contain;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      #bg-lines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+        height: calc(100vh + constant(safe-area-inset-top) + constant(safe-area-inset-bottom));
+    }
+      .safe-top {
+        padding-top: env(safe-area-inset-top);
+        padding-top: constant(safe-area-inset-top); 
+      }
+      .safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: constant(safe-area-inset-bottom); 
+      }
+      .status-bar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-top, 44px);
+        height: constant(safe-area-inset-top, 44px);
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 49;
+        pointer-events: none;
+    }
+      .bottom-bar-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-bottom, 34px);
+        height: constant(safe-area-inset-bottom, 34px);
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 49;
+        pointer-events: none;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .news-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    @media (hover: hover) {
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="status-bar-overlay"></div>
+    <div class="bottom-bar-overlay"></div>
+    <canvas id="bg-lines" class="fullscreen-canvas" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    min-width: 100vw;
+    min-height: 100vh;
+    "></canvas>   
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur safe-top translate-y-0">
+        <div class="mx-auto px-6 w-full py-4 flex justify-between items-center">
+
+            <a class="text-white druk-font text-2xl select-none">VULTOURJOL</a>
+
+            <div class="hamburger-menu lg:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer z-50">
+                <span class="bar w-6 h-0.5 bg-white mb-1.5 transition-all"></span>
+                <span class="bar w-6 h-0.5 bg-white mb-1.5 transition-all"></span>
+                <span class="bar w-6 h-0.5 bg-white transition-all"></span>
+            </div>  
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="news.html" class="text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none"><i class="ri-news-line"></i> Новости</a>
+                <a href="index.html" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider py-2 px-1 select-none">Вернуться на главную <i class="ri-arrow-go-back-line"></i></a>
+            </nav>
+            
+            <div class="mobile-menu fixed top-0 right-0 w-80 h-full transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+                <nav class="flex flex-col items-center justify-center w-full h-screen space-y-8 px-6">
+                    <a href="news.html" class="text-primary text-xl uppercase tracking-wider py-2 px-1 select-none"><i class="ri-news-line"></i> Новости</a>
+                    <a href="index.html" class="text-white hover:text-primary text-xl uppercase tracking-wider py-2 px-1 select-none">На главную <i class="ri-arrow-go-back-line"></i></a>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="pt-12">
+
+    <!-- Latest News Section -->
+    <section class="py-6 md:py-12">
+        <div class="container mx-auto px-6 w-full">
+            <h2 class="heading-font text-2xl md:text-3xl mb-8 md:mb-12 druk-font select-none">Последние <span class="text-primary">Новости</span></h2>
+            
+            <!-- Featured News -->
+            <div class="mb-12">
+                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                        <div class="relative h-64 lg:h-auto">
+                            <div class="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                                <i class="ri-code-box-fill text-primary text-4xl"></i>
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-primary text-black text-sm font-bold rounded">ОБНОВЛЕНИЕ</span>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8 flex flex-col justify-center">
+                            <div class="flex items-center text-sm opacity-60 mb-3">
+                                <i class="ri-calendar-line mr-2"></i>
+                                <span>3 сентября 2025</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 druk-font">Добавлен раздел новостей на сайте</h3>
+                            <p class="text-sm md:text-base opacity-80 mb-6">Я рад сообщить что раздел новостей теперь доступен на моём сайте. Следите за последними обновлениями и анонсами!</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Обновления</span>
+                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Сайт</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="mb-12">
+                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                        <div class="relative h-64 lg:h-auto">
+                            <img src="source/kinggg.webp" alt="Новый проект" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-primary text-black text-sm font-bold rounded">НОВОЕ</span>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8 flex flex-col justify-center">
+                            <div class="flex items-center text-sm opacity-60 mb-3">
+                                <i class="ri-calendar-line mr-2"></i>
+                                <span>15 февраля 2025</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 druk-font">Завершены съёмки документального фильма "Российский король рок-н-ролла"</h3>
+                            <p class="text-sm md:text-base opacity-80 mb-6">Мы рады сообщить о завершении съёмочного процесса нашего нового документального проекта о легенде русского рок-н-ролла. Фильм расскажет историю возрождения целой музыкальной эпохи...</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Документальный фильм</span>
+                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Музыка</span>
+                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Культура</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            
+
+            <!-- News Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- News Item -->
+                <!-- <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+                    <div class="relative h-48">
+                        <img src="source/coolnumbers.PNG" alt="Крутые номера" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-black bg-opacity-70 text-white text-xs rounded">АНОНС</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs opacity-60 mb-2">
+                            <i class="ri-calendar-line mr-1"></i>
+                            <span>10 февраля 2025</span>
+                        </div>
+                        <h3 class="text-lg mb-2 druk-font">Начались съёмки "Крутые номера"</h3>
+                        <p class="text-sm opacity-80 mb-3">Стартовал новый художественный проект по мотивам рассказа Александра Райна. Съёмки проходят в Волоколамске...</p>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Короткометражка</span>
+                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Драма</span>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- News Item -->
+                <!-- <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+                    <div class="relative h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-primary to-yellow-600 flex items-center justify-center">
+                            <i class="ri-camera-line text-white text-4xl"></i>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-black bg-opacity-70 text-white text-xs rounded">ОБНОВЛЕНИЕ</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs opacity-60 mb-2">
+                            <i class="ri-calendar-line mr-1"></i>
+                            <span>20 января 2025</span>
+                        </div>
+                        <h3 class="text-lg mb-2 druk-font">Обновление оборудования студии</h3>
+                        <p class="text-sm opacity-80 mb-3">Приобрели новое монтажное оборудование для улучшения качества постпродакшна наших проектов...</p>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Технологии</span>
+                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Студия</span>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- News Item -->
+                <!-- <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+                    <div class="relative h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                            <i class="ri-film-line text-primary text-4xl"></i>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2 py-1 bg-black bg-opacity-70 text-white text-xs rounded">ПЛАНЫ</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs opacity-60 mb-2">
+                            <i class="ri-calendar-line mr-1"></i>
+                            <span>10 января 2025</span>
+                        </div>
+                        <h3 class="text-lg mb-2 druk-font">Планы на 2025 год</h3>
+                        <p class="text-sm opacity-80 mb-3">Рассказываем о предстоящих проектах и новых направлениях в творчестве нашей команды...</p>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Планы</span>
+                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">2025</span>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <!-- Load More Button -->
+            <!-- <div class="text-center mt-12">
+                <button class="px-8 py-3 bg-primary text-black rounded-lg hover:bg-opacity-80 transition-colors font-medium shine-effect">
+                    Загрузить ещё
+                </button>
+            </div> -->
+
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="safe-bottom">
+        <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur">
+            <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
+                <a class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
+                <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:mt-8">
+                    <a href="news.html" class="text-primary transition-colors text-sm uppercase tracking-wider select-none"><i class="ri-news-line"></i> Новости</a>
+                    <a href="index.html" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Вернуться на главную <i class="ri-arrow-go-back-line"></i></a>
+                </nav>
+            </div>
+            
+            <div class="border-t border-white border-opacity-10 py-6">
+                <div class="flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-end space-y-3 md:space-y-0 md:space-x-4 lg:space-x-6 lg:text-right">
+                    <p class="text-sm opacity-60 text-left md:text-left lg:text-right"><a href="source/privacy-policy.pdf" class="hover:text-primary transition-colors select-none">Политика конфиденциальности</a></p>
+                    <p class="text-sm opacity-60 text-left md:text-center lg:text-right"><a href="https://policies.google.com/terms?hl=ru" class="hover:text-primary transition-colors select-none">Условия использования</a></p>
+                    <div class="text-left md:text-right lg:text-left">
+                        <p class="text-sm opacity-60 select-none">created by <a href="index.html" class="hover:text-primary transition-colors">me <i class="ri-code-s-slash-line"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/bg-anim-dots.js"></script>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            const header = document.querySelector("header");
+            const scrollPosition = window.scrollY;
+            
+            header.classList.remove("-translate-y-full");
+            header.classList.add("translate-y-0");
+            
+            if (scrollPosition > 100) {
+                header.classList.add("bg-black", "shadow-lg");
+            } else {
+                header.classList.remove("bg-black", "shadow-lg");
+            }
+        });
+    </script>
+</body>
+</html>
