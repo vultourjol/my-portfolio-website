@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         soft: '255,120,120'
     };
 
-    const tokens = ['MRX', 'ping', 'npm', 'git', 'API', 'CSS', 'JS', 'DOM', 'UI', '404', 'sudo', 'NULL', 'CTRL+S', 'NEXT', 'glhf', 'gg', 'AFK', 'IRL', 'URL', 'WIP', 'QAQ', 'TBD', 'ETA', 'JSON', 'XML', 'SQL', 'DB', 'AI', 'VR', 'AR', 'SDK', 'IDE', 'CLI', 'GUI', 'HTTP', 'HTTPS', 'FTP', 'SSH', 'RELEASE ME!', 'whoami', 'Flynn lives!'];
+    const tokens = ['MRX', 'ping', 'npm', 'git', 'API', 'CSS', 'JS', 'DOM', 'UI', '404', 'sudo', 'NULL', 'CTRL+S', 'NEXT', 'glhf', 'gg', 'AFK', 'IRL', 'URL', 'WIP', 'QAQ', 'TBD', 'ETA', 'JSON', 'XML', 'SQL', 'DB', 'AI', 'VR', 'AR', 'SDK', 'IDE', 'CLI', 'GUI', 'HTTP', 'HTTPS', 'FTP', 'SSH', 'RELEASE ME!', 'whoami', 'Flynn lives!', 'f*society'];
     const nodes = [];
     const links = [];
     const pulses = [];
