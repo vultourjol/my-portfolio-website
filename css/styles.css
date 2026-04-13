@@ -6,18 +6,36 @@
     --accent-color: #CD3838;
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.7);
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --app-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+    :root {
+        --app-height: 100dvh;
+    }
+
+    .min-h-screen {
+        min-height: 100dvh;
+    }
+
+    .h-screen {
+        height: 100dvh;
+    }
 }
         
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-primary);
     overflow-x: hidden;
-    padding-top: env(safe-area-inset-top);
+    padding-top: var(--safe-area-top);
+    padding-bottom: var(--safe-area-bottom);
     background-color: var(--dark-bg), transparent;
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: var(--app-height);
 }
 
 main {
@@ -29,7 +47,15 @@ html {
 }
 
 header {
-    padding-top: env(safe-area-inset-top);
+    padding-top: var(--safe-area-top);
+}
+
+.safe-top {
+    padding-top: var(--safe-area-top);
+}
+
+.safe-bottom {
+    padding-bottom: var(--safe-area-bottom);
 }
 
 #bg-lines {
@@ -185,7 +211,7 @@ header {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: var(--app-height);
     background: rgba(0, 0, 0, 1);
     opacity: 0;
     visibility: hidden;
