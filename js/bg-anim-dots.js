@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let streamPhase = 0;
     let pulseTimer = 0;
     let lastFrameTime = 0;
+    let resizeScheduled = false;
 
     const BASE_FRAME_MS = 1000 / 60;
 
@@ -46,10 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function resizeCanvas() {
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const nextDpr = Math.min(window.devicePixelRatio || 1, 2);
         const rect = canvas.getBoundingClientRect();
-        width = Math.max(1, Math.round(rect.width || window.innerWidth));
-        height = Math.max(1, Math.round(rect.height || window.innerHeight));
+        const nextWidth = Math.max(1, Math.round(rect.width || window.innerWidth));
+        const nextHeight = Math.max(1, Math.round(rect.height || window.innerHeight));
+
+        const sameDpr = nextDpr === dpr;
+        const tinyWidthShift = Math.abs(nextWidth - width) < 2;
+        const tinyHeightShift = Math.abs(nextHeight - height) < 2;
+        if (sameDpr && tinyWidthShift && tinyHeightShift) {
+            return;
+        }
+
+        dpr = nextDpr;
+        width = nextWidth;
+        height = nextHeight;
 
         canvas.width = Math.floor(width * dpr);
         canvas.height = Math.floor(height * dpr);
@@ -58,6 +70,18 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.scale(dpr, dpr);
 
         buildNetwork();
+    }
+
+    function requestResize() {
+        if (resizeScheduled) {
+            return;
+        }
+
+        resizeScheduled = true;
+        requestAnimationFrame(function () {
+            resizeScheduled = false;
+            resizeCanvas();
+        });
     }
 
     function buildNetwork() {
@@ -352,15 +376,14 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(animate);
     }
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', requestResize);
 
     if (window.visualViewport) {
-        window.visualViewport.addEventListener('resize', resizeCanvas);
-        window.visualViewport.addEventListener('scroll', resizeCanvas);
+        window.visualViewport.addEventListener('resize', requestResize);
     }
 
-    window.addEventListener('orientationchange', resizeCanvas);
-    window.addEventListener('pageshow', resizeCanvas);
+    window.addEventListener('orientationchange', requestResize);
+    window.addEventListener('pageshow', requestResize);
 
     resizeCanvas();
     for (let i = 0; i < 6; i++) {
