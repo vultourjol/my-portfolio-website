@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let streamPhase = 0;
     let pulseTimer = 0;
+    let lastFrameTime = 0;
+
+    const BASE_FRAME_MS = 1000 / 60;
 
     function rand(min, max) {
         return min + Math.random() * (max - min);
@@ -216,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updateNodes(time) {
+    function updateNodes(time, frameScale) {
         const driftBoost = prefersReducedMotion ? 0.35 : 1;
         const pointerRadius = width < 768 ? 190 : 240;
 
@@ -244,8 +247,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            const spring = prefersReducedMotion ? 0.035 : 0.075;
-            const damping = prefersReducedMotion ? 0.84 : 0.8;
+            const springBase = prefersReducedMotion ? 0.035 : 0.075;
+            const dampingBase = prefersReducedMotion ? 0.84 : 0.8;
+
+            const spring = 1 - Math.pow(1 - springBase, frameScale);
+            const damping = Math.pow(dampingBase, frameScale);
 
             node.vx += (targetX - node.x) * spring;
             node.vy += (targetY - node.y) * spring;
@@ -257,30 +263,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updatePointer() {
+    function updatePointerSmoothing(frameScale) {
         if (pointer.tx !== null && pointer.ty !== null) {
             if (pointer.x === null || pointer.y === null) {
                 pointer.x = pointer.tx;
                 pointer.y = pointer.ty;
             }
 
-            const easing = prefersReducedMotion ? 0.08 : 0.18;
+            const easingBase = prefersReducedMotion ? 0.08 : 0.18;
+            const easing = 1 - Math.pow(1 - easingBase, frameScale);
             pointer.x += (pointer.tx - pointer.x) * easing;
             pointer.y += (pointer.ty - pointer.y) * easing;
         }
 
-        const strengthEasing = prefersReducedMotion ? 0.07 : 0.14;
+        const strengthEasingBase = prefersReducedMotion ? 0.07 : 0.14;
+        const strengthEasing = 1 - Math.pow(1 - strengthEasingBase, frameScale);
         pointer.strength += (pointer.targetStrength - pointer.strength) * strengthEasing;
         if (pointer.strength < 0.001 && !pointer.active) {
             pointer.strength = 0;
         }
     }
 
-    function drawPulses() {
+    function drawPulses(frameScale) {
         for (let i = pulses.length - 1; i >= 0; i--) {
             const pulse = pulses[i];
 
-            pulse.progress += pulse.speed;
+            pulse.progress += pulse.speed * frameScale;
             if (pulse.progress >= 1) {
                 pulse.progress = 0;
                 pulse.step += 1;
@@ -307,20 +315,34 @@ document.addEventListener('DOMContentLoaded', function () {
             ctx.fillStyle = 'rgba(' + accent.soft + ',' + (0.6 * pulse.ttl).toFixed(3) + ')';
             ctx.fillText(pulse.token, x + 8, y - 8);
 
-            pulse.ttl *= 0.998;
+            pulse.ttl *= Math.pow(0.998, frameScale);
         }
     }
 
+    function getFrameScale(time) {
+        if (!lastFrameTime) {
+            lastFrameTime = time;
+            return 1;
+        }
+
+        const deltaMs = time - lastFrameTime;
+        lastFrameTime = time;
+
+        return Math.min(2.5, Math.max(0.5, deltaMs / BASE_FRAME_MS));
+    }
+
     function animate(time) {
-        updatePointer();
-        updateNodes(time);
+        const frameScale = getFrameScale(time);
+
+        updatePointerSmoothing(frameScale);
+        updateNodes(time, frameScale);
         drawBackdrop();
         drawLinks(time);
         drawNodes(time);
-        drawPulses();
+        drawPulses(frameScale);
 
-        streamPhase += prefersReducedMotion ? 0.002 : 0.009;
-        pulseTimer += 1;
+        streamPhase += (prefersReducedMotion ? 0.002 : 0.009) * frameScale;
+        pulseTimer += frameScale;
 
         const pulseInterval = width < 768 ? 28 : 18;
         if (pulseTimer >= pulseInterval) {
@@ -330,33 +352,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         requestAnimationFrame(animate);
     }
-
-    function updatePointer(clientX, clientY) {
-        pointer.tx = clientX;
-        pointer.ty = clientY;
-        pointer.active = true;
-        pointer.targetStrength = 1;
-    }
-
-    window.addEventListener('mousemove', function (event) {
-        updatePointer(event.clientX, event.clientY);
-    });
-
-    window.addEventListener('touchmove', function (event) {
-        if (event.touches && event.touches.length > 0) {
-            updatePointer(event.touches[0].clientX, event.touches[0].clientY);
-        }
-    }, { passive: true });
-
-    window.addEventListener('mouseout', function () {
-        pointer.active = false;
-        pointer.targetStrength = 0;
-    });
-
-    window.addEventListener('touchend', function () {
-        pointer.active = false;
-        pointer.targetStrength = 0;
-    }, { passive: true });
 
     window.addEventListener('resize', resizeCanvas);
 
