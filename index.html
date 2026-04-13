@@ -117,7 +117,7 @@
     <canvas id="bg-lines"></canvas>  
       
     <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur safe-top -translate-y-full">
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur safe-top -translate-y-full border-b-4 border-primary border-opacity-10">
         <div class="mx-auto px-6 w-full py-4 flex justify-between items-center">
 
             <a href="#hero" class="text-white druk-font text-2xl select-none">VULTOURJOL</a>
@@ -153,30 +153,29 @@
 
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- <div class="video-overlay"></div> -->
         <div class="mx-auto px-6 w-full z-10 text-center">
-            <h1 class="text-2xl md:text-5xl lg:text-9xl mb-4 md:mb-12 typewriter inline-block druk-font tracking-widest select-none">VULTOURJOL</h1>
+            <h1 class="text-2xl md:text-5xl lg:text-9xl mb-4 md:mb-12 typewriter inline-block druk-font tracking-widest select-none bg-[#0a0a0a] bg-opacity-10 backdrop-blur rounded">VULTOURJOL</h1>
             
             <div>
-                <p class="text-sm md:text-md lg:text-xl mb-4 md:mb-12 fade-in inline-block druk-font tracking-widest select-none text-primary">Developing your ideas.</p>
+                <p class="text-sm md:text-md lg:text-xl mb-4 md:mb-12 fade-in inline-block druk-font tracking-widest select-none text-primary bg-[#0a0a0a] bg-opacity-10 backdrop-blur rounded">Developing your ideas</p>
             </div>
             
             <div class="flex justify-center space-x-8 md:space-x-16 mb-16">
-                <div class="w-16 h-16 flex items-center justify-center floating">
+                <div class="w-16 h-16 flex items-center justify-center floating rounded-full bg-[#0a0a0a] bg-opacity-10 backdrop-blur">
                     <i class="ri-terminal-line text-white text-3xl md:text-4xl"></i>
                 </div>
 
-                <div class="w-16 h-16 flex items-center justify-center floating-delay-1">
+                <div class="w-16 h-16 flex items-center justify-center floating-delay-1 rounded-full bg-[#0a0a0a] bg-opacity-10 backdrop-blur">
                     <i class="ri-bug-2-line text-white text-3xl md:text-4xl"></i>
                 </div>
 
-                <div class="w-16 h-16 flex items-center justify-center floating-delay-2">
+                <div class="w-16 h-16 flex items-center justify-center floating-delay-2 rounded-full bg-[#0a0a0a] bg-opacity-10 backdrop-blur">
                     <i class="ri-code-s-slash-line text-white text-3xl md:text-4xl"></i>
                 </div>
             </div>
 
-            <a href="#portfolio" class="scroll-indicator inline-block rounded-full hover:bg-primary hover:bg-opacity-10 hover:backdrop-blur transition-colors">
-                <div class="w-16 h-16 flex items-center justify-center">
+            <a href="#portfolio" class="scroll-indicator inline-block rounded-full bg-[#0a0a0a] bg-opacity-10 backdrop-blur hover:bg-primary hover:bg-opacity-10 hover:backdrop-blur transition-colors">
+                <div class="w-16 h-16 flex items-center justify-center border-4 border-primary border-opacity-10 rounded-full">
                     <i class="ri-arrow-down-wide-line text-white font-bold text-4xl"></i>
                 </div>
             </a>
@@ -194,7 +193,7 @@
 
                     <!-- Project 3 -->
                     <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="3">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-4 border-primary border-opacity-10" data-project-id="2">
                             <picture>
                                 <source srcset="source/project3/project3.webp" media="(max-width: 600px)" type="image/webp">
                                 <source srcset="source/project3/project3.webp" media="(max-width: 1200px)" type="image/webp">
@@ -204,32 +203,15 @@
                             </picture>                     
                             <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
                                 <h3 class="text-xl mb-2 druk-font"><span class="text-primary">< в разработке ></span></h3>
-                                <h3 class="text-xl mb-2 druk-font">Сайт студии видеопроизводства</h3>
-                                <p class="text-sm opacity-80">С формами обратной связи</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="2">
-                            <picture>
-                                <source srcset="source/project2/project2.webp" media="(max-width: 600px)" type="image/webp">
-                                <source srcset="source/project2/project2.webp" media="(max-width: 1200px)" type="image/webp">
-                                <source srcset="source/project2/project2.webp" type="image/webp">
-                                <img src="source/project2/project2.webp" loading="lazy" alt="Tilda" 
-                                     class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
-                            </picture>                     
-                            <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6">
-                                <h3 class="text-xl mb-2 druk-font">Персональный сайт</h3>
-                                <p class="text-sm opacity-80">Редактирование на Tilda</p>
+                                <h3 class="text-xl mb-2 druk-font">СТУДИЯ 16/9</h3>
+                                <p class="text-sm opacity-80">Сайт студии видеопроизводства</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 1 -->
                     <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="1">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-4 border-primary border-opacity-10" data-project-id="1">
                             <picture>
                                 <source srcset="source/project1/project1.1.webp" media="(max-width: 600px)" type="image/webp">
                                 <source srcset="source/project1/project1.1.webp" media="(max-width: 1200px)" type="image/webp">
@@ -246,7 +228,7 @@
 
                     <!-- Soon -->
                     <div class="swiper-slide">
-                        <div class="project-card rounded overflow-hidden relative h-80 border-2 border-primary border-opacity-10" data-project-id="99">
+                        <div class="project-card rounded overflow-hidden relative h-80 border-4 border-primary border-opacity-10" data-project-id="99">
                             <div class="bg-[#0a0a0a] bg-opacity-10 backdrop-blur w-full h-full flex items-center justify-center">
                                 <div class="text-center">
                                     <i class="ri-git-repository-line text-primary text-5xl mb-4"></i>
@@ -281,12 +263,12 @@
 
             <!-- Showcase 1 -->
             <div class="featured-project mb-10">
-                <div class="relative h-[70vh] rounded-lg overflow-hidden mb-6 border-2 border-opacity-10 border-primary" data-gallery>
+                <div class="relative h-[60vh] rounded-lg overflow-hidden mb-6 border-4 border-opacity-10 border-primary" data-gallery>
                     <!-- Navigation arrows -->
-                    <button class="showcase-prev absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-2 border-primary border-opacity-10">
+                    <button class="showcase-prev absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-4 border-primary border-opacity-10">
                         <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
                     </button>
-                    <button class="showcase-next absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-2 border-primary border-opacity-10">
+                    <button class="showcase-next absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-4 border-primary border-opacity-10">
                         <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
                     </button>
 
@@ -343,7 +325,7 @@
                     </div>
 
                     <!-- Image indicator dots -->
-                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10 backdrop-blur bg-black bg-opacity-30 rounded-full px-1 py-1 border-4 border-primary border-opacity-10">
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity active" data-index="0"></button>
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="1"></button>
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="2"></button>
@@ -356,12 +338,12 @@
                     <div class="absolute bottom-0 left-0 p-12">
                         <h3 class="text-xl mb-2 druk-font"><span class="text-primary">< в разработке ></span></h3>
                         <h3 class="text-xl md:text-4xl mb-4 druk-font">HEATMAX PRO</h3>
-                        <p class="text-sm md:text-lg max-w-2xl opacity-80 mb-6">Интернет магазин обогревательных котлов для загородной недвижимости</p>
+                        <p class="text-sm md:text-lg max-w-2xl opacity-80 mb-6">Интернет магазин обогревательных котлов для загородной недвижимости.</p>
                         <div class="flex flex-wrap space-x-2 gap-y-2">
-                            <a href="https://github.com/vultourjol/boilers-website" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                            <a href="https://github.com/vultourjol/boilers-website" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-4 border-white border-opacity-10">
                                 <span class="text-sm">Github <i class="ri-github-fill text-white text-xl"></i></span>
                             </a>
-                            <a href="https://vultourjol.github.io/boilers-website/" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                            <a href="https://vultourjol.github.io/boilers-website/" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-4 border-white border-opacity-10">
                                 <span class="text-sm">Ссылка <i class="ri-temp-cold-line text-white text-xl"></i></span>
                             </a>
                         </div>
@@ -371,7 +353,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <h4 class="text-xl font-bold mb-4">Технологии</h4>
-                        <div class="bg-black bg-opacity-10 border-2 border-primary border-opacity-10 backdrop-blur p-4 rounded">
+                        <div class="bg-black bg-opacity-10 border-4 border-primary border-opacity-10 backdrop-blur p-4 rounded">
                             <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> Vanilla HTML</p>
                             <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> JavaScript</p>
                             <p class="text-sm md:text-lg opacity-80"><i class="ri-braces-line text-primary"></i> CSS</p>
@@ -380,13 +362,13 @@
                     <div>
                         <h4 class="text-xl font-bold mb-4">Особенности</h4>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-black bg-opacity-10 backdrop-blur p-4 rounded border-2 border-primary border-opacity-10">
+                            <div class="bg-black bg-opacity-10 backdrop-blur p-4 rounded border-4 border-primary border-opacity-10">
                                 <div class="w-10 h-10 flex items-center justify-center mb-2">
                                     <i class="ri-image-circle-line text-primary text-3xl md:text-4xl"></i>
                                 </div>
                                 <h5 class="font-bold mb-1 text-sm md:text-lg">Дизайн</h5>
                             </div>
-                            <div class="bg-black bg-opacity-10 backdrop-blur p-4 rounded border-2 border-primary border-opacity-10">
+                            <div class="bg-black bg-opacity-10 backdrop-blur p-4 rounded border-4 border-primary border-opacity-10">
                                 <div class="w-10 h-10 flex items-center justify-center mb-2">
                                     <i class="ri-settings-6-line text-primary text-3xl md:text-4xl"></i>
                                 </div>
@@ -404,47 +386,6 @@
     <section id="about" class="py-2 md:py-6">
         <div class="container mx-auto px-6 w-full mt-6">
             <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none mb-4 md:mb-16"><a href="#about">Обо <span class="text-primary">Мне</span></a></h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-                
-                <!-- Main picture -->
-                <div class="relative select-none order-2 lg:order-1">
-                    <div class="film-strip absolute top-0 left-0 h-full w-12"></div>
-                    <div class="pl-16">
-                        <picture>
-                            <source srcset="source/mypic.webp" media="(max-width: 600px)" type="image/webp">
-                            <source srcset="source/mypic.webp" media="(max-width: 1200px)" type="image/webp">
-                            <source srcset="source/mypic.webp" type="image/webp">
-                            <img src="source/mypic.webp" loading="lazy" alt="Портрет" 
-                                class="rounded-lg w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110 max-h-[600px] md:max-h-[1000px] lg:max-h-none border-2 border-primary border-opacity-10">
-                        </picture>                    
-                    </div>
-                    <div class="absolute -bottom-4 md:-bottom-8 -right-2 bg-primary rounded-lg p-4 md:p-6 shadow-x border-4 border-white border-opacity-50 shine-effect">
-                        <p class="text-sm md:text-base">Программист / Разработчик</p>
-                    </div>
-                </div>
-
-                <!-- Description -->
-                <div class="select-none order-1 lg:order-2 rounded-lg bg-black bg-opacity-10 backdrop-blur p-6 md:p-8 lg:p-12 border-2 border-primary border-opacity-10">
-                    <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6 druk-font">Егор Нуруллин</h3>
-                    <p class="opacity-80 mb-4 md:mb-6 text-sm md:text-base lg:text-lg">Я — разработчик из Москвы, специализирующийся на создании сайтов и мобильных приложений.</p>
-                    <p class="opacity-80 mb-4 md:mb-6 text-sm md:text-base lg:text-lg">Ключ к успешному проекту — это комплексный подход. Поэтому в своей работе я одинаково ценю:</p>
-                    <p class="opacity-80 text-sm md:text-base lg:text-lg mb-2"><i class="ri-signal-wifi-1-line text-primary"></i> Чистый и поддерживаемый код как основу для долгосрочного развития продукта.</p>
-                    <p class="opacity-80 text-sm md:text-base lg:text-lg mb-2"><i class="ri-signal-wifi-2-line text-primary"></i> Соблюдение сроков как проявление уважения к клиенту.</p>
-                    <p class="opacity-80 text-sm md:text-base lg:text-lg mb-2"><i class="ri-signal-wifi-3-line text-primary"></i> Открытую коммуникацию для достижения наилучшего результата.</p>
-                    <p class="opacity-80 mb-6 md:mb-8 text-sm md:text-base lg:text-lg"><i class="ri-signal-wifi-error-line text-primary"></i> Творческий подход и внимание к дизайну, чтобы продукт был не только функциональным, но и привлекательным.</p>
-                    <p class="opacity-80 mb-6 md:mb-8 text-sm md:text-base lg:text-lg">Я всегда открыт для новых интересных задач и готов помочь вам реализовать вашу идею.</p>
-                    
-                    <!-- Links -->
-                    <div class="flex flex-wrap gap-2 md:gap-3">
-                        <a href="https://github.com/vultourjol" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
-                            <span class="text-sm">Мой Github <i class="ri-github-fill text-white text-xl"></i></span>
-                        </a>
-                        <a href="https://discord.gg/5w2qNaPrx6" class="shine-effect px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded hover:bg-primary transition-colors border-2 border-white border-opacity-10">
-                            <span class="text-sm">Discord <i class="ri-discord-fill text-white text-xl"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
             
             <!-- Workspace -->
             <div class="mt-12 md:mt-16">
@@ -456,7 +397,7 @@
                             <i class="ri-terminal-window-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
                         </div>
                         <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">Софт</h4>
-                        <ul class="text-sm md:text-base lg:text-lg space-y-2 border-2 border-primary border-opacity-10 rounded-lg p-4 bg-black bg-opacity-10 backdrop-blur">
+                        <ul class="text-sm md:text-base lg:text-lg space-y-2 border-4 border-primary border-opacity-10 rounded-lg p-4 bg-black bg-opacity-10 backdrop-blur">
                             <li class="flex items-center justify-between md:justify-end">
                                 <div class="flex items-center md:contents">
                                     <i class="ri-git-pull-request-line mr-2 md:hidden"></i>
@@ -466,10 +407,10 @@
                             </li>
                             <li class="flex items-center justify-between md:justify-end">
                                 <div class="flex items-center md:contents">
-                                    <i class="ri-git-fork-line mr-2 md:hidden"></i>
-                                    <span>VS CODE</span>
+                                    <i class="ri-git-merge-line mr-2 md:hidden"></i>
+                                    <span>VS CODE / Cursor / Zed</span>
                                 </div>
-                                <i class="ri-git-fork-line hidden md:inline ml-2"></i>
+                                <i class="ri-git-merge-line hidden md:inline ml-2"></i>
                             </li>
                             <li class="flex items-center justify-between md:justify-end">
                                 <div class="flex items-center md:contents">
@@ -478,6 +419,20 @@
                                 </div>
                                 <i class="ri-git-branch-line hidden md:inline ml-2"></i>
                             </li>
+                            <li class="flex items-center justify-between md:justify-end">
+                                <div class="flex items-center md:contents">
+                                    <i class="ri-git-fork-line mr-2 md:hidden"></i>
+                                    <span>Claude Code</span>
+                                </div>
+                                <i class="ri-git-fork-line hidden md:inline ml-2"></i>
+                            </li>
+                            <li class="flex items-center justify-between md:justify-end">
+                                <div class="flex items-center md:contents">
+                                    <i class="ri-git-close-pull-request-line mr-2 md:hidden"></i>
+                                    <span>GPT Codex</span>
+                                </div>
+                                <i class="ri-git-close-pull-request-line hidden md:inline ml-2"></i>
+                            </li>
                         </ul>
                     </div>
                     
@@ -485,11 +440,13 @@
                         <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-4">
                             <i class="ri-computer-line text-primary text-2xl md:text-3xl lg:text-4xl"></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">PC</h4>
-                        <ul class="text-sm md:text-base lg:text-lg space-y-2 border-2 border-primary border-opacity-10 rounded-lg p-4 bg-black bg-opacity-10 backdrop-blur">
+                        <h4 class="font-bold mb-2 text-sm md:text-base lg:text-lg">Железо</h4>
+                        <ul class="text-sm md:text-base lg:text-lg space-y-2 border-4 border-primary border-opacity-10 rounded-lg p-4 bg-black bg-opacity-10 backdrop-blur">
                             <li><i class="ri-instance-line"></i> RTX 5060 Ti 8GB</li>
                             <li><i class="ri-cpu-line"></i> Ryzen 5 5600</li>
                             <li><i class="ri-ram-2-line"></i> RAM 32GB</li>
+                            <li><i class="ri-hard-drive-line"></i> 2+ TB Data Storage</li>
+                            <li><i class="ri-macbook-line"></i> Macbook Air M1</li>
                         </ul>
                     </div>
                 </div>
@@ -502,10 +459,8 @@
         <div class="container mx-auto px-6 w-full mt-6">
             <h2 class="heading-font text-3xl md:text-4xl mb-16 text-center druk-font select-none mb-4 md:mb-16"><a href="#contact">Остаемся на <span class="text-primary">Связи</span></a></h2>
             <div class="max-w-4xl mx-auto text-left md:text-center">
-                <h3 class="text-2xl font-bold mb-6 select-none">Давайте это реализуем</h3>
-                <p class="opacity-80 text-sm md:text-lg mb-6 select-none">Свяжитесь со мной любым удобным способом.</p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-11 bg-black bg-opacity-10 backdrop-blur rounded border-2 border-primary border-opacity-10 py-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-11 bg-black bg-opacity-10 backdrop-blur rounded border-4 border-primary border-opacity-10 py-6">
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 flex items-center justify-center text-primary">
                             <i class="ri-map-pin-line text-3xl md:text-4xl"></i>
@@ -524,18 +479,6 @@
                             vultourjol@yandex.ru
                             <i class="ri-file-copy-line ml-2 text-lg"></i>
                         </p>
-                    </div>
-                        
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 flex items-center justify-center text-primary">
-                            <i class="ri-phone-line text-3xl md:text-4xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg select-none">Телефон</h4>
-                        <p class="text-md opacity-80 cursor-pointer hover:text-primary transition-colors flex items-center" 
-                            id="phoneCopy" onclick="copyToClipboard('+79296311504', this)">
-                            +7 (929) 631-15-04
-                            <i class="ri-file-copy-line ml-2 text-lg"></i>
-                        </p>                            
                     </div>
 
                     <div class="flex flex-col items-center">
@@ -558,24 +501,14 @@
 
     <!-- Footer -->
     <footer class="safe-bottom">
-        <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur">
-            <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
-                <a href="#hero" class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
-                <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:mt-8">
-                    <a href="news.html" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none"><i class="ri-news-line"></i> Новости</a>
-                    <a href="#portfolio" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Портфолио</a>
-                    <a href="#showcase" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Новое</a>
-                    <a href="#about" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Обо мне</a>
-                    <a href="#contact" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Контакты</a>
-                </nav>
-            </div>
+        <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur border-t-4 border-primary border-opacity-10">
             
-            <div class="border-t border-white border-opacity-10 py-6">
+            <div class="py-6">
                 <div class="flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-end space-y-3 md:space-y-0 md:space-x-4 lg:space-x-6 lg:text-right">
                     <p class="text-sm opacity-60 text-left md:text-left lg:text-right"><a href="source/privacy-policy.pdf" class="hover:text-primary transition-colors select-none">Политика конфиденциальности</a></p>
                     <p class="text-sm opacity-60 text-left md:text-center lg:text-right"><a href="https://policies.google.com/terms?hl=ru" class="hover:text-primary transition-colors select-none">Условия использования</a></p>
                     <div class="text-left md:text-right lg:text-left">
-                        <p class="text-sm opacity-60 select-none">created by <a href="#hero" class="hover:text-primary transition-colors">me <i class="ri-code-s-slash-line"></i></a></p>
+                        <p class="text-sm opacity-60 select-none"><a href="#hero" class="hover:text-primary transition-colors">created by me <i class="ri-code-s-slash-line"></i></a></p>
                     </div>
                 </div>
             </div>
@@ -586,10 +519,10 @@
     <div class="fixed inset-0 flex items-center justify-center z-50 project-modal hidden" id="modal-backdrop">
         <div class="absolute inset-0" id="modal-overlay"></div>
 
-        <!-- Project 3 Modal -->
-        <div class="project-modal-content hidden" id="modal-project-3">
-            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
-                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
+        <!-- Project 2 Modal -->
+        <div class="project-modal-content hidden" id="modal-project-2">
+            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none border-4 border-primary border-opacity-10">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-4 border-primary border-opacity-10 hover:bg-opacity-50">
                     <i class="ri-close-line text-white text-2xl"></i>
                 </button>
 
@@ -632,7 +565,7 @@
                         </picture>
                     </div>
                 
-                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10 backdrop-blur bg-black bg-opacity-30 rounded-full px-1 py-1 border-4 border-primary border-opacity-10">
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity active" data-index="0"></button>
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="1"></button>
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="2"></button>
@@ -642,7 +575,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
                         <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font"><span class="text-primary">< в разработке ></span></h3>
-                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">Сайт студии видеопроизводства</h3>
+                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">СТУДИЯ 16/9</h3>
                         <div class="flex flex-wrap gap-2">
                             <a class="px-2 py-1 flex items-center justify-center bg-black bg-opacity-50 rounded border-2 border-white border-opacity-10">
                                 <span class="text-sm">Vanilla HTML</span>
@@ -679,82 +612,10 @@
             </div>
         </div>
 
-        <!-- Project 2 Modal -->
-        <div class="project-modal-content hidden" id="modal-project-2">
-            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
-                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
-                    <i class="ri-close-line text-white text-2xl"></i>
-                </button>
-
-                <div class="relative h-[50vh]" data-gallery>
-                    <button class="showcase-prev absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-2 border-primary border-opacity-10">
-                        <i class="ri-arrow-left-wide-line text-white text-2xl"></i>
-                    </button>
-                    <button class="showcase-next absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:bg-opacity-50 transition-colors z-10 border-2 border-primary border-opacity-10">
-                        <i class="ri-arrow-right-wide-line text-white text-2xl"></i>
-                    </button>
-                
-                    <div class="showcase-images">
-                        <picture class="showcase-image active">
-                            <source srcset="source/project2/project2.1.webp" media="(max-width: 480)" type="image/webp">
-                            <source srcset="source/project2/project2.1.webp" media="(max-width: 720)" type="image/webp">
-                            <source srcset="source/project2/project2.1.webp" media="(max-width: 1200px)" type="image/webp">
-                            <source srcset="source/project2/project2.1.webp" type="image/webp">
-                            <img src="source/project2/project2.1.webp" loading="lazy" alt="Project 1 - Image 1" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
-                        </picture>
-                        <picture class="showcase-image">
-                            <source srcset="source/project2/project2.2.webp" media="(max-width: 480)" type="image/webp">
-                            <source srcset="source/project2/project2.2.webp" media="(max-width: 720)" type="image/webp">
-                            <source srcset="source/project2/project2.2.webp" media="(max-width: 1200px)" type="image/webp">
-                            <source srcset="source/project2/project2.2.webp" type="image/webp">
-                            <img src="source/project2/project2.2.webp" loading="lazy" alt="Project 1 - Image 2" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
-                        </picture>
-                        <picture class="showcase-image">
-                            <source srcset="source/project2/project2.3.webp" media="(max-width: 480)" type="image/webp">
-                            <source srcset="source/project2/project2.3.webp" media="(max-width: 720)" type="image/webp">
-                            <source srcset="source/project2/project2.3.webp" media="(max-width: 1200px)" type="image/webp">
-                            <source srcset="source/project2/project2.3.webp" type="image/webp">
-                            <img src="source/project2/project2.3.webp" loading="lazy" alt="Project 1 - Image 3" class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110">
-                        </picture>
-                    </div>
-                
-                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity active" data-index="0"></button>
-                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="1"></button>
-                        <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="2"></button>
-                    </div>
-                
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-8">
-                        <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">Сайт эксперта в области маркетинга и клиентского сервиса</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <a class="px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded border-2 border-white border-opacity-10">
-                                <span class="text-sm">Tilda</span>
-                            </a> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-8">
-                    <p class="text-sm md:text-lg mb-8">Отредактировал готовую работу клиента.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
-                        <div>
-                            <h4 class="text-xl font-bold mb-4">Изменения</h4>
-                            <p class="text-sm md:text-lg opacity-80">Отредактировал текст, расположение, добавил анимации, удалил лишние блоки.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-4">А еще!</h4>
-                            <p class="text-sm md:text-lg opacity-80">Восстановил адаптацию под мобильные устройства.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Project 1 Modal -->
         <div class="project-modal-content hidden" id="modal-project-1">
-            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
-                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
+            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none border-4 border-primary border-opacity-10">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-4 border-primary border-opacity-10 hover:bg-opacity-50">
                     <i class="ri-close-line text-white text-2xl"></i>
                 </button>
 
@@ -804,7 +665,7 @@
                         </picture>
                     </div>
                 
-                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                    <div class="absolute top-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10 backdrop-blur bg-black bg-opacity-30 rounded-full px-1 py-1 border-4 border-primary border-opacity-10">
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity active" data-index="0"></button>
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="1"></button>
                         <button class="showcase-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-80 transition-opacity" data-index="2"></button>
@@ -837,25 +698,24 @@
                 </div>
 
                 <div class="p-8">
-                    <p class="text-sm md:text-lg mb-8">Удобная навигация, которая позволяет легко найти информацию о всех услугах, и подробное портфолио с примерами работ, демонстрирующее опыт и креативность студии.</p>
-                    <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
                         <div>
                             <h4 class="text-xl font-bold mb-4">Особенности</h4>
-                            <p class="text-sm md:text-lg opacity-80">Удобная навигация, которая позволяет легко найти информацию о всех услугах, и подробное портфолио с примерами работ, демонстрирующее опыт и креативность студии.</p>
+                            <p class="text-sm md:text-lg opacity-80">Удобная навигация и подробное портфолио, демонстрирующее опыт и креативность автора.</p>
                         </div>
                         <div>
                             <h4 class="text-xl font-bold mb-4">А также</h4>
-                            <p class="text-sm md:text-lg opacity-80">На сайте есть простая и более подробная форма обратной связи для быстрой консультации и заказа проекта.</p>
+                            <p class="text-sm md:text-lg opacity-80">Невероятно красивый.</p>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Project 99 Modal -->
         <div class="project-modal-content hidden" id="modal-project-99">
-            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none">
-                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-2 border-primary border-opacity-10 hover:bg-opacity-50">
+            <div class="bg-[#121212] rounded-lg w-[90vw] max-w-5xl max-h-[75vh] md:max-h-[90vh] overflow-y-auto relative z-50 select-none border-4 border-primary border-opacity-10">
+                <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-10 hover:bg-primary transition-colors duration-200 z-50 border-4 border-primary border-opacity-10 hover:bg-opacity-50">
                     <i class="ri-close-line text-white text-2xl"></i>
                 </button>
                 <div class="relative h-[50vh]">
@@ -864,10 +724,10 @@
                     <div class="absolute bottom-0 left-0 p-8">
                         <h3 class="heading-font text-3xl md:text-4xl mb-4 druk-font">Ой, тут так пусто</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">хорошо</span> 
-                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">хоть</span> 
-                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border-2 border-white border-opacity-10">не</span> 
-                            <a href="#" class="shine-effect px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded text-sm hover:bg-primary transition-colors border-2 border-white border-opacity-10">
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border border-white border-opacity-10">хорошо</span> 
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border border-white border-opacity-10">хоть</span> 
+                            <span class="px-4 py-2 bg-black bg-opacity-50 rounded text-sm border border-white border-opacity-10">не</span> 
+                            <a href="#" class="shine-effect px-4 py-2 flex items-center justify-center bg-black bg-opacity-50 rounded text-sm hover:bg-primary transition-colors border border-white border-opacity-10">
                                 <span>пыльно</span>
                             </a> 
                         </div>
@@ -884,10 +744,6 @@
                             <h4 class="text-xl font-bold mb-4">А еще!</h4>
                             <p class="text-sm md:text-lg opacity-80">Можете связаться со мной, если у вас возникла идея.</p>
                         </div>
-                    </div>
-                    <div class="mb-8">
-                        <h4 class="text-xl font-bold mb-4">Спасибо, что заглянули!</h4>
-                        <p class="text-sm md:text-lg opacity-80">Будем ждать вас как можно скорее!</p>
                     </div>
                 </div>
             </div>

@@ -137,7 +137,7 @@
     "></canvas>   
 
     <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur safe-top translate-y-0">
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur safe-top translate-y-0 border-b-4 border-primary border-opacity-10">
         <div class="mx-auto px-6 w-full py-4 flex justify-between items-center">
 
             <a class="text-white druk-font text-2xl select-none">VULTOURJOL</a>
@@ -172,13 +172,14 @@
             
             <!-- Featured News -->
             <div class="mb-12">
-                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-4 border-primary border-opacity-10 overflow-hidden">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                         <div class="relative h-64 lg:h-auto">
-                            <img src="source/project4/project4.webp" loading="lazy" alt="Project 4 - Image 1" 
-                                class="w-full h-full object-cover object-top">
+                            <div class="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                                <i class="ri-code-box-fill text-primary text-4xl"></i>
+                            </div>
                             <div class="absolute top-4 left-4">
-                                <span class="px-3 py-1 bg-primary text-black text-sm font-bold rounded">АНОНС</span>
+                                <span class="px-3 py-1 bg-primary text-black text-sm font-bold rounded">ОБНОВЛЕНИЕ</span>
                             </div>
                         </div>
                         <div class="p-6 lg:p-8 flex flex-col justify-center">
@@ -186,10 +187,10 @@
                                 <i class="ri-calendar-line mr-2"></i>
                                 <span>3 сентября 2025</span>
                             </div>
-                            <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 druk-font">Добавлены 3 новых проекта</h3>
-                            <p class="text-sm md:text-base opacity-80 mb-6">Три интернет магазина: HEATMAX PRO, Bogatto_Boutique, Diada_Moscow</p>
+                            <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 druk-font">Добавлен раздел новостей на сайте</h3>
+                            <p class="text-sm md:text-base opacity-80 mb-6">Я рад сообщить что раздел новостей теперь доступен на сайте. Следите за последними обновлениями и анонсами!</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Projects</span>
+                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Feature</span>
                                 <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Dev</span>
                             </div>
                         </div>
@@ -197,39 +198,11 @@
                 </div>
             </div>
 
-            <!-- <div class="mb-12">
-                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                        <div class="relative h-64 lg:h-auto">
-                            <img src="source/kinggg.webp" alt="Новый проект" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4">
-                                <span class="px-3 py-1 bg-primary text-black text-sm font-bold rounded">НОВОЕ</span>
-                            </div>
-                        </div>
-                        <div class="p-6 lg:p-8 flex flex-col justify-center">
-                            <div class="flex items-center text-sm opacity-60 mb-3">
-                                <i class="ri-calendar-line mr-2"></i>
-                                <span>15 февраля 2025</span>
-                            </div>
-                            <h3 class="text-xl md:text-2xl lg:text-3xl mb-4 druk-font">Завершены съёмки документального фильма "Российский король рок-н-ролла"</h3>
-                            <p class="text-sm md:text-base opacity-80 mb-6">Мы рады сообщить о завершении съёмочного процесса нашего нового документального проекта о легенде русского рок-н-ролла. Фильм расскажет историю возрождения целой музыкальной эпохи...</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Документальный фильм</span>
-                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Музыка</span>
-                                <span class="px-3 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Культура</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            
-
             <!-- News Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- News Item -->
-                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                News Item
+                <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-4 border-primary border-opacity-10 overflow-hidden">
                     <div class="relative h-48">
                         <div class="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
                             <i class="ri-code-box-fill text-primary text-4xl"></i>
@@ -251,62 +224,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- News Item -->
-                <!-- <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
-                    <div class="relative h-48">
-                        <div class="w-full h-full bg-gradient-to-br from-primary to-yellow-600 flex items-center justify-center">
-                            <i class="ri-camera-line text-white text-4xl"></i>
-                        </div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-2 py-1 bg-black bg-opacity-70 text-white text-xs rounded">ОБНОВЛЕНИЕ</span>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center text-xs opacity-60 mb-2">
-                            <i class="ri-calendar-line mr-1"></i>
-                            <span>20 января 2025</span>
-                        </div>
-                        <h3 class="text-lg mb-2 druk-font">Обновление оборудования студии</h3>
-                        <p class="text-sm opacity-80 mb-3">Приобрели новое монтажное оборудование для улучшения качества постпродакшна наших проектов...</p>
-                        <div class="flex flex-wrap gap-1 mb-3">
-                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Технологии</span>
-                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Студия</span>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- News Item -->
-                <!-- <div class="news-card bg-black bg-opacity-10 backdrop-blur rounded-lg border-2 border-primary border-opacity-10 overflow-hidden">
-                    <div class="relative h-48">
-                        <div class="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
-                            <i class="ri-film-line text-primary text-4xl"></i>
-                        </div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-2 py-1 bg-black bg-opacity-70 text-white text-xs rounded">ПЛАНЫ</span>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center text-xs opacity-60 mb-2">
-                            <i class="ri-calendar-line mr-1"></i>
-                            <span>10 января 2025</span>
-                        </div>
-                        <h3 class="text-lg mb-2 druk-font">Планы на 2025 год</h3>
-                        <p class="text-sm opacity-80 mb-3">Рассказываем о предстоящих проектах и новых направлениях в творчестве нашей команды...</p>
-                        <div class="flex flex-wrap gap-1 mb-3">
-                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">Планы</span>
-                            <span class="px-2 py-1 bg-black bg-opacity-30 rounded text-xs border border-primary border-opacity-20">2025</span>
-                        </div>
-                    </div>
-                </div> -->
-
-            </div>
-
-            <!-- Load More Button -->
-            <!-- <div class="text-center mt-12">
-                <button class="px-8 py-3 bg-primary text-black rounded-lg hover:bg-opacity-80 transition-colors font-medium shine-effect">
-                    Загрузить ещё
-                </button>
             </div> -->
 
         </div>
@@ -316,21 +233,13 @@
 
     <!-- Footer -->
     <footer class="safe-bottom">
-        <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur">
-            <div class="flex flex-col lg:flex-row justify-between mb-6 lg:mb-0">
-                <a class="text-white druk-font text-2xl mt-6 mb-6 select-none">VULTOURJOL</a>
-                <nav class="flex flex-wrap gap-x-8 gap-y-4 lg:mt-8">
-                    <a href="news.html" class="text-primary transition-colors text-sm uppercase tracking-wider select-none"><i class="ri-news-line"></i> Новости</a>
-                    <a href="index.html" class="text-white hover:text-primary transition-colors text-sm uppercase tracking-wider select-none">Вернуться на главную <i class="ri-arrow-go-back-line"></i></a>
-                </nav>
-            </div>
-            
-            <div class="border-t border-white border-opacity-10 py-6">
+        <div class="mx-auto px-6 w-full bg-black bg-opacity-10 backdrop-blur border-t-4 border-primary border-opacity-10">
+            <div class="py-6">
                 <div class="flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-end space-y-3 md:space-y-0 md:space-x-4 lg:space-x-6 lg:text-right">
                     <p class="text-sm opacity-60 text-left md:text-left lg:text-right"><a href="source/privacy-policy.pdf" class="hover:text-primary transition-colors select-none">Политика конфиденциальности</a></p>
                     <p class="text-sm opacity-60 text-left md:text-center lg:text-right"><a href="https://policies.google.com/terms?hl=ru" class="hover:text-primary transition-colors select-none">Условия использования</a></p>
                     <div class="text-left md:text-right lg:text-left">
-                        <p class="text-sm opacity-60 select-none">created by <a href="index.html" class="hover:text-primary transition-colors">me <i class="ri-code-s-slash-line"></i></a></p>
+                        <p class="text-sm opacity-60 select-none"><a href="index.html" class="hover:text-primary transition-colors">created by me <i class="ri-code-s-slash-line"></i></a></p>
                     </div>
                 </div>
             </div>
