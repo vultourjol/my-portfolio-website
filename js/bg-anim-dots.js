@@ -47,13 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function resizeCanvas() {
         dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = window.innerWidth;
-        height = window.innerHeight;
+        const rect = canvas.getBoundingClientRect();
+        width = Math.max(1, Math.round(rect.width || window.innerWidth));
+        height = Math.max(1, Math.round(rect.height || window.innerHeight));
 
         canvas.width = Math.floor(width * dpr);
         canvas.height = Math.floor(height * dpr);
-        canvas.style.width = width + 'px';
-        canvas.style.height = height + 'px';
 
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(dpr, dpr);
@@ -354,6 +353,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.addEventListener('resize', resizeCanvas);
+
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', resizeCanvas);
+        window.visualViewport.addEventListener('scroll', resizeCanvas);
+    }
+
+    window.addEventListener('orientationchange', resizeCanvas);
+    window.addEventListener('pageshow', resizeCanvas);
 
     resizeCanvas();
     for (let i = 0; i < 6; i++) {

@@ -61,15 +61,39 @@
 
       #bg-lines {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -1;
+                inset: 0;
+                width: 100lvw;
+                height: 100lvh;
+                min-width: 100vw;
+                min-height: 100vh;
+                z-index: -1;
         pointer-events: none;
-        height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
-        height: calc(100vh + constant(safe-area-inset-top) + constant(safe-area-inset-bottom));
-        }
+            }
+
+          #bg-underlay {
+        position: fixed;
+        inset: 0;
+        width: 100lvw;
+        height: 100lvh;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: -2;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 50% 45%, rgba(16, 10, 10, 0.55) 0%, rgba(4, 4, 4, 0.96) 78%),
+          linear-gradient(135deg, rgba(205, 56, 56, 0.08) 0%, rgba(0, 0, 0, 0) 45%, rgba(205, 56, 56, 0.1) 100%);
+          }
+
+            @supports (height: 100dvh) {
+                #bg-lines {
+                        min-height: 100dvh;
+                }
+
+            #bg-underlay {
+                min-height: 100dvh;
+            }
+            }
+
       .safe-top {
         padding-top: env(safe-area-inset-top);
         padding-top: constant(safe-area-inset-top); 
@@ -114,6 +138,7 @@
 <body>
     <div class="status-bar-overlay"></div>
     <div class="bottom-bar-overlay"></div>
+    <div id="bg-underlay" aria-hidden="true"></div>
     <canvas id="bg-lines"></canvas>  
       
     <!-- Header Navigation -->
