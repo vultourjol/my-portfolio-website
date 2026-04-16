@@ -17,7 +17,11 @@ const PAGE_TRANSLATIONS = {
             "#showcase .featured-project .absolute.bottom-0.left-0.p-12 h3:first-child": "<span class=\"text-primary\">< в разработке ></span>",
             "#modal-project-2 .absolute.bottom-0.left-0.p-8 h3:first-child": "<span class=\"text-primary\">< в разработке ></span>",
             "#showcase .featured-project .absolute.bottom-0.left-0.p-12 .flex a:nth-child(2) span": "Ссылка <i class=\"ri-temp-cold-line text-white text-xl\"></i>",
-            "#modal-project-1 .absolute.bottom-0.left-0.p-8 .flex a:last-child span": "Где-то я это видел... <i class=\"ri-movie-2-line text-white text-xl\"></i>"
+            "#modal-project-1 .absolute.bottom-0.left-0.p-8 .flex a:last-child span": "Где-то я это видел... <i class=\"ri-movie-2-line text-white text-xl\"></i>",
+            "header nav.hidden.lg\\:flex a[href='index.html']": "Вернуться на главную <i class=\"ri-arrow-go-back-line\"></i>",
+            ".mobile-menu a[href='index.html']": "На главную <i class=\"ri-arrow-go-back-line\"></i>",
+            "main section.py-6.md\\:py-12 h2.heading-font": "Последние <span class=\"text-primary\">Новости</span>",
+            "main .news-card .absolute.top-4.left-4 span": "ОБНОВЛЕНИЕ"
         },
         text: {
             "header nav.hidden.lg\\:flex a[href='#portfolio']": "Портфолио",
@@ -42,6 +46,9 @@ const PAGE_TRANSLATIONS = {
             "#contact .grid > div:nth-child(3) h4": "Telegram",
             "footer a[href='source/privacy-policy.pdf']": "Политика конфиденциальности",
             "footer a[href='https://policies.google.com/terms?hl=ru']": "Условия использования",
+            "main .news-card .flex.items-center.text-sm.opacity-60.mb-3 span": "3 сентября 2025",
+            "main .news-card h3": "Добавлен раздел новостей на сайте",
+            "main .news-card p": "Я рад сообщить что раздел новостей теперь доступен на сайте. Следите за последними обновлениями и анонсами!",
             "#modal-project-2 .p-8 > p": "Студия видеопроизводства предлагает полный спектр услуг по созданию высококачественного видеоконтента, от разработки концепции до финального монтажа.",
             "#modal-project-2 .absolute.bottom-0.left-0.p-8 h3:nth-of-type(2)": "СТУДИЯ 16/9",
             "#modal-project-2 .p-8 .grid p:first-of-type": "Удобная навигация, которая позволяет легко найти информацию о всех услугах, и подробное портфолио с примерами работ, демонстрирующее опыт и креативность студии.",
@@ -80,7 +87,11 @@ const PAGE_TRANSLATIONS = {
             "#showcase .featured-project .absolute.bottom-0.left-0.p-12 h3:first-child": "<span class=\"text-primary\">< in development ></span>",
             "#modal-project-2 .absolute.bottom-0.left-0.p-8 h3:first-child": "<span class=\"text-primary\">< in development ></span>",
             "#showcase .featured-project .absolute.bottom-0.left-0.p-12 .flex a:nth-child(2) span": "Link <i class=\"ri-temp-cold-line text-white text-xl\"></i>",
-            "#modal-project-1 .absolute.bottom-0.left-0.p-8 .flex a:last-child span": "Looks familiar... <i class=\"ri-movie-2-line text-white text-xl\"></i>"
+            "#modal-project-1 .absolute.bottom-0.left-0.p-8 .flex a:last-child span": "Looks familiar... <i class=\"ri-movie-2-line text-white text-xl\"></i>",
+            "header nav.hidden.lg\\:flex a[href='index.html']": "Back to home <i class=\"ri-arrow-go-back-line\"></i>",
+            ".mobile-menu a[href='index.html']": "Home <i class=\"ri-arrow-go-back-line\"></i>",
+            "main section.py-6.md\\:py-12 h2.heading-font": "Latest <span class=\"text-primary\">News</span>",
+            "main .news-card .absolute.top-4.left-4 span": "UPDATE"
         },
         text: {
             "header nav.hidden.lg\\:flex a[href='#portfolio']": "Portfolio",
@@ -105,6 +116,9 @@ const PAGE_TRANSLATIONS = {
             "#contact .grid > div:nth-child(3) h4": "Telegram",
             "footer a[href='source/privacy-policy.pdf']": "Privacy Policy",
             "footer a[href='https://policies.google.com/terms?hl=ru']": "Terms of Use",
+            "main .news-card .flex.items-center.text-sm.opacity-60.mb-3 span": "September 3, 2025",
+            "main .news-card h3": "News section added to the website",
+            "main .news-card p": "I am glad to share that the news section is now available on the website. Stay tuned for updates and announcements!",
             "#modal-project-2 .p-8 > p": "The video production studio offers a full range of services for creating high-quality video content, from concept development to final editing.",
             "#modal-project-2 .absolute.bottom-0.left-0.p-8 h3:nth-of-type(2)": "STUDIO 16/9",
             "#modal-project-2 .p-8 .grid p:first-of-type": "Convenient navigation helps visitors quickly find service information, and a detailed portfolio showcases the studio's experience and creativity.",
@@ -176,6 +190,11 @@ function applyLanguage(lang) {
 
     currentLanguage = selectedLanguage;
     document.documentElement.lang = selectedLanguage;
+
+    if (window.location.pathname.endsWith("news.html")) {
+        document.title = selectedLanguage === "en" ? "News - vultourjol" : "Новости - vultourjol";
+    }
+
     updateLanguageButtons(selectedLanguage);
     localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
 }
